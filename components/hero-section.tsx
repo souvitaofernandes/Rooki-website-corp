@@ -35,17 +35,17 @@ export function HeroSection() {
         {/* Badge */}
         <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8 mt-12 animate-fade-in-badge">
           <span className="w-2 h-2 bg-white/60 rounded-full mr-2 animate-pulse"></span>
-          AI Automation for Enterprise
+          Verificação anti-golpe
         </div>
 
         {/* Main Heading */}
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-balance mb-6 animate-fade-in-heading">
-          <span className="text-foreground">Elevate your</span>
+          <span className="text-foreground">Pare o golpe</span>
           <br />
           <span className="inline-flex items-center justify-center flex-wrap gap-2 mt-4 sm:mt-6 md:mt-8">
-            <span className="text-foreground">Business</span>
+            <span className="text-foreground">antes</span>
             <RotatingText
-              texts={["Growth", "Innovation", "Efficiency", "Success", "Performance"]}
+              texts={["da decisão", "do clique", "do PIX", "da senha", "do prejuízo"]}
               mainClassName="px-2 sm:px-2 md:px-3 bg-white text-black overflow-hidden py-1 sm:py-1 md:py-2 justify-center rounded-lg shadow-lg"
               staggerFrom={"last"}
               initial={{ y: "100%" }}
@@ -61,8 +61,8 @@ export function HeroSection() {
 
         {/* Subheading */}
         <p className="text-base sm:text-xl md:text-2xl text-white text-balance max-w-sm sm:max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0 animate-fade-in-subheading font-light">
-          Cliste helps Irish businesses save time and boost revenue with smart chat, workflows and automations, fully
-          managed for you.
+          A Rooki verifica mensagens, links e cobranças e avisa se é golpe, antes do seu cliente agir. Funciona no
+          WhatsApp e integra à sua operação.
         </p>
 
         {/* CTA Buttons */}
@@ -71,7 +71,7 @@ export function HeroSection() {
             size="lg"
             className="bg-white text-black rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden"
           >
-            Start Automating
+            Falar com a gente
             <ArrowRight />
           </Button>
 
@@ -81,31 +81,31 @@ export function HeroSection() {
             className="rounded-full px-8 py-4 text-lg font-medium border-border hover:bg-accent transition-all duration-200 hover:scale-105 group bg-transparent cursor-pointer"
           >
             <Play />
-            Watch Demo
+            Ver demo
           </Button>
         </div>
 
         {/* Trust Indicators */}
         <div className="text-center px-4 hidden sm:block overflow-hidden animate-fade-in-trust">
-          <p className="text-sm text-white mb-6">Trusted by innovative companies worldwide</p>
+          <p className="text-sm text-white mb-6">A camada de verificação que seus clientes usam sem perceber</p>
           <div className="relative overflow-hidden w-full max-w-4xl mx-auto">
             <div className="flex items-center gap-8 opacity-60 hover:opacity-80 transition-all duration-500 animate-slide-left">
               <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="text-base sm:text-lg font-semibold">TechCorp</div>
-                <div className="text-base sm:text-lg font-semibold">InnovateLab</div>
-                <div className="text-base sm:text-lg font-semibold">FutureScale</div>
-                <div className="text-base sm:text-lg font-semibold">AutoFlow</div>
-                <div className="text-base sm:text-lg font-semibold">eScale</div>
-                <div className="text-base sm:text-lg font-semibold">DataFlow</div>
+                <div className="text-base sm:text-lg font-semibold">WhatsApp</div>
+                <div className="text-base sm:text-lg font-semibold">PIX</div>
+                <div className="text-base sm:text-lg font-semibold">Open Finance</div>
+                <div className="text-base sm:text-lg font-semibold">SMS</div>
+                <div className="text-base sm:text-lg font-semibold">E-mail</div>
+                <div className="text-base sm:text-lg font-semibold">Instagram</div>
               </div>
               {/* Duplicate for seamless loop */}
               <div className="flex items-center gap-8 whitespace-nowrap">
-                <div className="text-base sm:text-lg font-semibold">TechCorp</div>
-                <div className="text-base sm:text-lg font-semibold">InnovateLab</div>
-                <div className="text-base sm:text-lg font-semibold">FutureScale</div>
-                <div className="text-base sm:text-lg font-semibold">AutoFlow</div>
-                <div className="text-base sm:text-lg font-semibold">eScale</div>
-                <div className="text-base sm:text-lg font-semibold">DataFlow</div>
+                <div className="text-base sm:text-lg font-semibold">WhatsApp</div>
+                <div className="text-base sm:text-lg font-semibold">PIX</div>
+                <div className="text-base sm:text-lg font-semibold">Open Finance</div>
+                <div className="text-base sm:text-lg font-semibold">SMS</div>
+                <div className="text-base sm:text-lg font-semibold">E-mail</div>
+                <div className="text-base sm:text-lg font-semibold">Instagram</div>
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@ export function HeroSection() {
 
         {/* Mobile Trust Indicators */}
         <div className="text-center px-4 mb-8 sm:hidden overflow-hidden animate-fade-in-trust">
-          <p className="text-sm text-white mb-6">Trusted by innovative companies worldwide</p>
+          <p className="text-sm text-white mb-6">A camada de verificação que seus clientes usam sem perceber</p>
           <div className="relative overflow-hidden w-full max-w-sm mx-auto">
             {/* Left blur fade */}
             <div className="absolute left-0 top-0 w-8 h-full bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
@@ -121,21 +121,21 @@ export function HeroSection() {
             <div className="absolute right-0 top-0 w-8 h-full bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
             <div className="flex items-center gap-6 opacity-60 animate-slide-left-mobile">
               <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="text-sm font-semibold">TechCorp</div>
-                <div className="text-sm font-semibold">InnovateLab</div>
-                <div className="text-sm font-semibold">FutureScale</div>
-                <div className="text-sm font-semibold">AutoFlow</div>
-                <div className="text-sm font-semibold">eScale</div>
-                <div className="text-sm font-semibold">DataFlow</div>
+                <div className="text-sm font-semibold">WhatsApp</div>
+                <div className="text-sm font-semibold">PIX</div>
+                <div className="text-sm font-semibold">Open Finance</div>
+                <div className="text-sm font-semibold">SMS</div>
+                <div className="text-sm font-semibold">E-mail</div>
+                <div className="text-sm font-semibold">Instagram</div>
               </div>
               {/* Duplicate for seamless loop */}
               <div className="flex items-center gap-6 whitespace-nowrap">
-                <div className="text-sm font-semibold">TechCorp</div>
-                <div className="text-sm font-semibold">InnovateLab</div>
-                <div className="text-sm font-semibold">FutureScale</div>
-                <div className="text-sm font-semibold">AutoFlow</div>
-                <div className="text-sm font-semibold">eScale</div>
-                <div className="text-sm font-semibold">DataFlow</div>
+                <div className="text-sm font-semibold">WhatsApp</div>
+                <div className="text-sm font-semibold">PIX</div>
+                <div className="text-sm font-semibold">Open Finance</div>
+                <div className="text-sm font-semibold">SMS</div>
+                <div className="text-sm font-semibold">E-mail</div>
+                <div className="text-sm font-semibold">Instagram</div>
               </div>
             </div>
           </div>

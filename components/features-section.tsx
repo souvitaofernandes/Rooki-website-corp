@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react"
 
 const AnimatedChatDemo = ({ isActive }: { isActive: boolean }) => {
   const [messages, setMessages] = useState([
-    { text: "Hi! How can I help you today?", isBot: true, visible: false },
-    { text: "I'd like to book an appointment", isBot: false, visible: false },
-    { text: "Perfect! I can help with that. What service are you interested in?", isBot: true, visible: false },
+    { text: "Recebi essa cobrança por PIX. É golpe?", isBot: true, visible: false },
+    { text: "Manda o print ou o link que eu verifico", isBot: false, visible: false },
+    { text: "Esse link imita o banco, mas o domínio é falso. Não clique.", isBot: true, visible: false },
   ])
   const [typingDots, setTypingDots] = useState(0)
   const [currentTime, setCurrentTime] = useState(new Date())
@@ -24,19 +24,22 @@ const AnimatedChatDemo = ({ isActive }: { isActive: boolean }) => {
 
     const scenarios = [
       [
-        { text: "Hi! How can I help you today?", isBot: true },
-        { text: "I'd like to book an appointment", isBot: false },
-        { text: "Perfect! I can help with that. What service are you interested in?", isBot: true },
+        { text: "Recebi essa cobrança por PIX. É golpe?", isBot: true },
+        { text: "Manda o print ou o link que eu verifico", isBot: false },
+        { text: "Esse link imita o banco, mas o domínio é falso. Não clique.", isBot: true },
       ],
       [
-        { text: "Hello! I'm available 24/7 to assist you.", isBot: true },
-        { text: "Do you have weekend availability?", isBot: false },
-        { text: "I can check our weekend slots for you.", isBot: true },
+        { text: "Estou aqui 24h pra verificar o que você receber.", isBot: true },
+        { text: "Recebi um link de sorteio, posso confiar?", isBot: false },
+        { text: "Vou checar o link agora pra você.", isBot: true },
       ],
       [
-        { text: "Good evening! How may I assist you?", isBot: true },
-        { text: "I need help with pricing", isBot: false },
-        { text: "I'd be happy to provide pricing information right away!", isBot: true },
+        { text: "Boa noite! O que você quer verificar?", isBot: true },
+        { text: "Me ligaram dizendo que são do banco", isBot: false },
+        {
+          text: "Banco não pede senha por ligação. Desligue e ligue você mesmo no número do cartão.",
+          isBot: true,
+        },
       ],
     ]
 
@@ -138,7 +141,7 @@ const AnimatedPhoneDemo = ({ isActive }: { isActive: boolean }) => {
 
   return (
     <div className="bg-slate-50 rounded-lg p-4 h-32 flex items-center justify-center relative">
-      <div className="absolute top-2 right-2 text-xs text-slate-500 font-medium">Calls: {callCount + 1}</div>
+      <div className="absolute top-2 right-2 text-xs text-slate-500 font-medium">Links: {callCount + 1}</div>
       <div className="relative">
         <div
           className={`w-16 h-16 rounded-full bg-green-500 flex items-center justify-center transition-all duration-500 ${
@@ -157,7 +160,7 @@ const AnimatedPhoneDemo = ({ isActive }: { isActive: boolean }) => {
         )}
         {callState === "answered" && (
           <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-            <div className="bg-blue-100 px-2 py-1 rounded text-xs text-blue-700 whitespace-nowrap">Call answered</div>
+            <div className="bg-blue-100 px-2 py-1 rounded text-xs text-blue-700 whitespace-nowrap">Link verificado</div>
           </div>
         )}
       </div>
@@ -201,7 +204,7 @@ const AnimatedCalendarDemo = ({ isActive }: { isActive: boolean }) => {
         ))}
       </div>
       {booked && (
-        <div className="mt-2 text-xs text-green-600 font-medium animate-fade-in">✓ Appointment booked for the 15th</div>
+        <div className="mt-2 text-xs text-green-600 font-medium animate-fade-in">✓ Golpe identificado e bloqueado</div>
       )}
     </div>
   )
@@ -209,9 +212,9 @@ const AnimatedCalendarDemo = ({ isActive }: { isActive: boolean }) => {
 
 const AnimatedEmailDemo = ({ isActive }: { isActive: boolean }) => {
   const [emails, setEmails] = useState([
-    { subject: "Service inquiry", status: "unread" },
-    { subject: "Appointment request", status: "unread" },
-    { subject: "Quote needed", status: "unread" },
+    { subject: "Cobrança suspeita", status: "unread" },
+    { subject: "Boleto recebido", status: "unread" },
+    { subject: "Link de banco", status: "unread" },
   ])
 
   useEffect(() => {
@@ -316,8 +319,8 @@ const AnimatedIntegrationsDemo = ({ isActive }: { isActive: boolean }) => {
   const [connections, setConnections] = useState([
     { name: "CRM", connected: false },
     { name: "WhatsApp", connected: false },
-    { name: "Calendar", connected: false },
-    { name: "Email", connected: false },
+    { name: "SMS", connected: false },
+    { name: "E-mail", connected: false },
   ])
 
   useEffect(() => {
@@ -353,7 +356,7 @@ const AnimatedIntegrationsDemo = ({ isActive }: { isActive: boolean }) => {
         ))}
       </div>
       <div className="mt-2 text-center">
-        <div className="text-xs text-slate-500">{connections.filter((c) => c.connected).length}/4 connected</div>
+        <div className="text-xs text-slate-500">{connections.filter((c) => c.connected).length}/4 conectados</div>
       </div>
     </div>
   )
@@ -361,44 +364,44 @@ const AnimatedIntegrationsDemo = ({ isActive }: { isActive: boolean }) => {
 
 const features = [
   {
-    title: "24/7 AI Chat Support",
+    title: "Verificação no WhatsApp 24/7",
     description:
-      "Intelligent chatbots that handle customer inquiries, answer questions, and capture leads across your website and social channels.",
+      "O cliente encaminha a mensagem, o link ou o áudio. A Rooki analisa e diz se parece golpe, a qualquer hora, sem fila e sem espera.",
     demo: AnimatedChatDemo,
     size: "large",
   },
   {
-    title: "AI Phone Receptionist",
+    title: "Detecção de link falso",
     description:
-      "Professional AI voice assistant that answers calls, takes messages, and books appointments when you're busy or closed.",
+      "Analisa o link antes do clique e identifica páginas que se passam por banco, loja ou órgão público.",
     demo: AnimatedPhoneDemo,
     size: "medium",
   },
   {
-    title: "Smart Appointment Booking",
+    title: "Resposta em segundos",
     description:
-      "Automated scheduling system that checks availability, books appointments, and sends confirmations without human intervention.",
+      "O veredito chega em menos de 10 segundos, no mesmo canal onde o cliente recebeu a mensagem. Sem app novo, sem cadastro.",
     demo: AnimatedCalendarDemo,
     size: "medium",
   },
   {
-    title: "Email Response Automation",
+    title: "Verificação de cobranças",
     description:
-      "AI-powered email assistant that responds to inquiries, provides information, and forwards complex queries to your team.",
+      "Confere boletos, faturas e cobranças por e-mail e SMS, e alerta quando o beneficiário foi trocado.",
     demo: AnimatedEmailDemo,
     size: "large",
   },
   {
-    title: "Lead Qualification & Handoff",
+    title: "Classificação do golpe",
     description:
-      "Intelligent system that qualifies prospects, gathers key information, and seamlessly hands off hot leads to your sales team.",
+      "Identifica o tipo de golpe, de PIX a phishing e falso atendente, e orienta o passo seguro na hora.",
     demo: AnimatedLeadsDemo,
     size: "medium",
   },
   {
-    title: "Multi-Platform Integration",
+    title: "Integração com sua operação",
     description:
-      "Connect with your existing tools including CRM, calendar, WhatsApp, SMS, and more for a unified customer experience.",
+      "Conecta a verificação aos canais que o cliente já usa: WhatsApp, SMS, e-mail, app e redes, sem trocar a infraestrutura.",
     demo: AnimatedIntegrationsDemo,
     size: "medium",
   },
@@ -472,17 +475,17 @@ export function FeaturesSection() {
               <svg className="w-4 h-4 mr-2 text-slate-600" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.89 1 3 1.89 3 3V7H1V9H3V15H1V17H3V21C3 22.11 3.89 23 5 23H19C20.11 23 21 22.11 21 21V17H23V15H21V9H23ZM19 9V15H5V9H19ZM7.5 11.5C7.5 10.67 8.17 10 9 10S10.5 10.67 10.5 11.5 9.83 13 9 13 7.5 12.33 7.5 11.5ZM13.5 11.5C13.5 10.67 14.17 10 15 10S16.5 10.67 16.5 11.5 15.83 13 15 13 13.5 12.33 13.5 11.5ZM12 16C13.11 16 14.08 16.59 14.71 17.5H9.29C9.92 16.59 10.89 16 12 16Z" />
               </svg>
-              AI Working 24/7 - Never Miss a Lead
+              Verificação 24/7, em todo canal
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 text-balance mb-4 sm:mb-6">
-              Your AI Team{" "}
+              A Rooki{" "}
               <span className="bg-gradient-to-r from-slate-600 to-slate-400 bg-clip-text text-transparent">
-                Never Sleeps
+                nunca dorme
               </span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
-              Watch our AI handle real customer interactions around the clock, automatically qualifying leads and
-              booking appointments while you focus on growing your business.
+              Enquanto seu cliente recebe a mensagem suspeita, a Rooki analisa e responde se é golpe, em segundos, sem
+              que ele precise sair do WhatsApp.
             </p>
           </div>
 

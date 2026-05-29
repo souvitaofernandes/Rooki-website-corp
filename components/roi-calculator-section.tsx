@@ -93,18 +93,18 @@ export function ROICalculatorSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-6">
             <TrendingUp className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-white/80">ROI Calculator</span>
+            <span className="text-sm font-medium text-white/80">Calculadora de exposição</span>
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 text-balance">
-            See your potential{" "}
+            Quanto sua base perde em{" "}
             <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              revenue growth
+              golpes por ano
             </span>
           </h2>
 
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto text-balance">
-            Calculate how much additional revenue your business could generate with AI-powered customer engagement
+            Estime a perda potencial da sua base a golpes digitais e o quanto a verificação pode evitar.
           </p>
         </div>
 
@@ -114,12 +114,12 @@ export function ROICalculatorSection() {
             className={`transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
             <Card className="p-6 md:p-8 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/15%),theme(backgroundColor.white/5%))] border-white/20 backdrop-blur-sm shadow-2xl h-full flex flex-col">
-              <h3 className="text-xl md:text-2xl font-semibold text-white mb-6 md:mb-8">Your Business Metrics</h3>
+              <h3 className="text-xl md:text-2xl font-semibold text-white mb-6 md:mb-8">Dados da sua base</h3>
 
               <div className="space-y-8 flex-1">
                 {/* Business Type */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-3">Business Type</label>
+                  <label className="block text-sm font-medium text-gray-300 mb-3">Segmento</label>
                   <Select
                     value={inputs.businessType}
                     onValueChange={(value) => setInputs((prev) => ({ ...prev, businessType: value }))}
@@ -128,13 +128,13 @@ export function ROICalculatorSection() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent className="bg-gray-800 border-gray-700">
-                      <SelectItem value="ecommerce">E-commerce</SelectItem>
-                      <SelectItem value="retail">Retail</SelectItem>
-                      <SelectItem value="realestate">Real Estate</SelectItem>
-                      <SelectItem value="hospitality">Hospitality</SelectItem>
-                      <SelectItem value="healthcare">Healthcare</SelectItem>
-                      <SelectItem value="finance">Finance</SelectItem>
-                      <SelectItem value="automotive">Automotive</SelectItem>
+                      <SelectItem value="ecommerce">Fintech</SelectItem>
+                      <SelectItem value="retail">Banco digital</SelectItem>
+                      <SelectItem value="realestate">Telecom</SelectItem>
+                      <SelectItem value="hospitality">Seguradora</SelectItem>
+                      <SelectItem value="healthcare">Cooperativa</SelectItem>
+                      <SelectItem value="finance">Meios de pagamento</SelectItem>
+                      <SelectItem value="automotive">Varejo</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -142,7 +142,7 @@ export function ROICalculatorSection() {
                 {/* Monthly Visitors */}
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-3">
-                    Monthly Website Visitors:{" "}
+                    Clientes na base:{" "}
                     <span className="text-white font-semibold">{inputs.monthlyVisitors.toLocaleString()}</span>
                   </label>
                   <Slider
@@ -154,15 +154,15 @@ export function ROICalculatorSection() {
                     className="w-full"
                   />
                   <div className="flex justify-between text-xs text-gray-400 mt-1">
-                    <span>1K</span>
-                    <span>100K</span>
+                    <span>10 mil</span>
+                    <span>10 mi</span>
                   </div>
                 </div>
 
                 {/* Conversion Rate */}
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-3">
-                    Current Conversion Rate:{" "}
+                    Clientes que recebem golpe/mês:{" "}
                     <span className="text-white font-semibold">{inputs.currentConversionRate}%</span>
                   </label>
                   <Slider
@@ -174,16 +174,16 @@ export function ROICalculatorSection() {
                     className="w-full"
                   />
                   <div className="flex justify-between text-xs text-gray-400 mt-1">
-                    <span>0.5%</span>
-                    <span>10%</span>
+                    <span>1%</span>
+                    <span>30%</span>
                   </div>
                 </div>
 
                 {/* Average Order Value */}
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-3">
-                    Average Order Value:{" "}
-                    <span className="text-white font-semibold">€{inputs.averageOrderValue.toLocaleString()}</span>
+                    Prejuízo médio por golpe:{" "}
+                    <span className="text-white font-semibold">R$ {inputs.averageOrderValue.toLocaleString()}</span>
                   </label>
                   <Slider
                     value={[inputs.averageOrderValue]}
@@ -194,8 +194,8 @@ export function ROICalculatorSection() {
                     className="w-full"
                   />
                   <div className="flex justify-between text-xs text-gray-400 mt-1">
-                    <span>€25</span>
-                    <span>€{businessConfig.maxOrder.toLocaleString()}</span>
+                    <span>R$ 200</span>
+                    <span>R$ {businessConfig.maxOrder.toLocaleString()}</span>
                   </div>
                 </div>
 
@@ -214,20 +214,20 @@ export function ROICalculatorSection() {
                       />
                     </svg>
                   </div>
-                  <span className="text-sm text-primary font-medium">Scroll down to see your results</span>
+                  <span className="text-sm text-primary font-medium">Role para ver o resultado</span>
                 </div>
               </div>
 
               <div className="mt-8 pt-6 border-t border-gray-700/50">
                 <div className="space-y-4">
-                  <h4 className="text-sm font-semibold text-gray-300 mb-3">💡 Industry Insights</h4>
+                  <h4 className="text-sm font-semibold text-gray-300 mb-3">💡 Dados de mercado</h4>
                   <div className="space-y-3">
                     <div className="flex items-start gap-3 p-3 rounded-lg bg-white/5">
                       <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
                       <div>
                         <p className="text-sm text-gray-300">
-                          <span className="font-medium text-white">Average improvement:</span> Businesses see{" "}
-                          {businessConfig.conversion}% increase in conversions within 30 days
+                          <span className="font-medium text-white">Mercado:</span> golpes via PIX e phishing são a
+                          fraude que mais cresce no Brasil
                         </p>
                       </div>
                     </div>
@@ -235,8 +235,8 @@ export function ROICalculatorSection() {
                       <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
                       <div>
                         <p className="text-sm text-gray-300">
-                          <span className="font-medium text-white">Response time:</span> AI chatbots respond{" "}
-                          {businessConfig.response}% faster than traditional methods
+                          <span className="font-medium text-white">Velocidade:</span> a verificação devolve o veredito em
+                          menos de 10 segundos
                         </p>
                       </div>
                     </div>
@@ -244,8 +244,8 @@ export function ROICalculatorSection() {
                       <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
                       <div>
                         <p className="text-sm text-gray-300">
-                          <span className="font-medium text-white">Customer satisfaction:</span> Increases by{" "}
-                          {businessConfig.satisfaction}% with 24/7 AI support
+                          <span className="font-medium text-white">Confiança:</span> cliente que verifica antes abre
+                          menos chamado de estorno
                         </p>
                       </div>
                     </div>
@@ -261,21 +261,21 @@ export function ROICalculatorSection() {
           >
             <Card className="p-6 md:p-8 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/15%),theme(backgroundColor.white/5%))] border-white/20 backdrop-blur-sm shadow-2xl h-full flex flex-col">
               <h3 className="text-xl md:text-2xl font-semibold text-white mb-6 md:mb-8">
-                Your Potential with Cliste AI
+                Sua exposição com a Rooki
               </h3>
 
               <div className="space-y-6 flex-1">
                 {/* Current vs New Metrics */}
                 <div className="grid grid-cols-2 gap-3 md:gap-4">
                   <div className="text-center p-3 md:p-4 rounded-lg bg-gray-700/30">
-                    <div className="text-xs md:text-sm text-gray-400 mb-1">Current</div>
+                    <div className="text-xs md:text-sm text-gray-400 mb-1">Hoje</div>
                     <div className="text-xl md:text-2xl font-bold text-white">{currentLeads}</div>
-                    <div className="text-xs text-gray-400">leads/month</div>
+                    <div className="text-xs text-gray-400">golpes/mês</div>
                   </div>
                   <div className="text-center p-3 md:p-4 rounded-lg bg-white/10 border border-white/20">
-                    <div className="text-xs md:text-sm text-gray-300 mb-1">With Cliste</div>
+                    <div className="text-xs md:text-sm text-gray-300 mb-1">Com a Rooki</div>
                     <div className="text-xl md:text-2xl font-bold text-white">{newLeads}</div>
-                    <div className="text-xs text-gray-300">leads/month</div>
+                    <div className="text-xs text-gray-300">golpes evitados/mês</div>
                   </div>
                 </div>
 
@@ -283,7 +283,7 @@ export function ROICalculatorSection() {
                   <div className="flex items-center justify-between p-3 md:p-4 rounded-lg bg-white/5 border border-white/10">
                     <div className="flex items-center gap-3">
                       <Users className="w-4 h-4 md:w-5 md:h-5 text-gray-300" />
-                      <span className="text-sm md:text-base text-white">Additional Leads</span>
+                      <span className="text-sm md:text-base text-white">Golpes evitados</span>
                     </div>
                     <span className="text-lg md:text-xl font-bold text-white">+{additionalLeads}</span>
                   </div>
@@ -291,17 +291,17 @@ export function ROICalculatorSection() {
                   <div className="flex items-center justify-between p-3 md:p-4 rounded-lg bg-white/5 border border-white/10">
                     <div className="flex items-center gap-3">
                       <DollarSign className="w-4 h-4 md:w-5 md:h-5 text-gray-300" />
-                      <span className="text-sm md:text-base text-white">Additional Revenue</span>
+                      <span className="text-sm md:text-base text-white">Perda evitada</span>
                     </div>
                     <span className="text-lg md:text-xl font-bold text-white">
-                      €{additionalRevenue.toLocaleString()}
+                      R$ {additionalRevenue.toLocaleString()}
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between p-3 md:p-4 rounded-lg bg-white/5 border border-white/10">
                     <div className="flex items-center gap-3">
                       <TrendingUp className="w-4 h-4 md:w-5 md:h-5 text-gray-300" />
-                      <span className="text-sm md:text-base text-white">Revenue Increase</span>
+                      <span className="text-sm md:text-base text-white">Redução de exposição</span>
                     </div>
                     <span className="text-lg md:text-xl font-bold text-white">+{revenueIncrease.toFixed(1)}%</span>
                   </div>
@@ -309,21 +309,21 @@ export function ROICalculatorSection() {
                   <div className="flex items-center justify-between p-3 md:p-4 rounded-lg bg-white/5 border border-white/10">
                     <div className="flex items-center gap-3">
                       <Clock className="w-4 h-4 md:w-5 md:h-5 text-gray-300" />
-                      <span className="text-sm md:text-base text-white">Response Time</span>
+                      <span className="text-sm md:text-base text-white">Tempo de verificação</span>
                     </div>
-                    <span className="text-lg md:text-xl font-bold text-white">{improvements.response}% faster</span>
+                    <span className="text-lg md:text-xl font-bold text-white">{improvements.response}% mais rápido</span>
                   </div>
                 </div>
 
                 {/* Annual Projection */}
                 <div className="mt-6 md:mt-8 p-4 md:p-6 rounded-lg bg-white/5 border border-white/10">
                   <div className="text-center">
-                    <div className="text-xs md:text-sm text-gray-300 mb-2">Projected Annual Revenue Increase</div>
+                    <div className="text-xs md:text-sm text-gray-300 mb-2">Perda potencial evitada por ano</div>
                     <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">
-                      €{(additionalRevenue * 12).toLocaleString()}
+                      R$ {(additionalRevenue * 12).toLocaleString()}
                     </div>
                     <div className="text-xs md:text-sm text-gray-400">
-                      Based on your current metrics and industry benchmarks
+                      Estimativa baseada nos seus dados e em médias de mercado
                     </div>
                   </div>
                 </div>
@@ -336,7 +336,9 @@ export function ROICalculatorSection() {
         <div
           className={`text-center mt-12 md:mt-16 transition-all duration-700 delay-600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <p className="text-sm text-gray-400 mt-4">* Results based on industry averages and may vary by business</p>
+          <p className="text-sm text-gray-400 mt-4">
+            * Estimativa com base em médias de mercado. Os números reais variam por base e segmento.
+          </p>
         </div>
       </div>
     </section>

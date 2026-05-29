@@ -18,34 +18,34 @@ interface FooterSection {
 
 const footerLinks: FooterSection[] = [
   {
-    label: "Product",
+    label: "Produto",
     links: [
-      { title: "Features", href: "/features" },
-      { title: "AI Team", href: "/ai-team" },
-      { title: "ROI Calculator", href: "/roi-calculator" },
-      { title: "Integration", href: "/integration" },
+      { title: "Funcionalidades", href: "/features" },
+      { title: "Como funciona", href: "/ai-team" },
+      { title: "Calculadora", href: "/roi-calculator" },
+      { title: "Integração", href: "/integration" },
     ],
   },
   {
-    label: "Company",
+    label: "Empresa",
     links: [
-      { title: "About Us", href: "/about" },
-      { title: "Contact", href: "/contact" },
-      { title: "Privacy Policy", href: "/privacy" },
-      { title: "Terms of Service", href: "/terms" },
+      { title: "Sobre", href: "/about" },
+      { title: "Contato", href: "/contact" },
+      { title: "Privacidade", href: "/privacy" },
+      { title: "Termos de uso", href: "/terms" },
     ],
   },
   {
-    label: "Resources",
+    label: "Recursos",
     links: [
       { title: "Blog", href: "/blog" },
-      { title: "Case Studies", href: "/case-studies" },
-      { title: "Documentation", href: "/docs" },
-      { title: "Support", href: "/support" },
+      { title: "Casos", href: "/case-studies" },
+      { title: "Documentação", href: "/docs" },
+      { title: "Suporte", href: "/support" },
     ],
   },
   {
-    label: "Social Links",
+    label: "Redes",
     links: [
       { title: "Facebook", href: "#", icon: FacebookIcon },
       { title: "Instagram", href: "#", icon: InstagramIcon },
@@ -62,9 +62,9 @@ export function Footer() {
 
       <div className="grid w-full gap-8 xl:grid-cols-3 xl:gap-8">
         <AnimatedContainer className="space-y-4">
-          <Image src="/images/cliste-logo.png" alt="Cliste Logo" width={64} height={64} className="size-16" />
+          <Image src="/images/cliste-logo.png" alt="Rooki Logo" width={64} height={64} className="size-16" />
           <div className="text-muted-foreground mt-8 text-sm md:mt-0 md:block hidden">
-            <p>© {new Date().getFullYear()} Cliste. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Rooki. Todos os direitos reservados.</p>
           </div>
         </AnimatedContainer>
 
@@ -93,7 +93,7 @@ export function Footer() {
       </div>
 
       <div className="md:hidden mt-8 text-center space-y-2">
-        <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} Cliste. All rights reserved.</p>
+        <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} Rooki. Todos os direitos reservados.</p>
         <p className="text-muted-foreground text-xs">Web Development by Humexa</p>
       </div>
 

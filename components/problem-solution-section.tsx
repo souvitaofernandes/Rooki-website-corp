@@ -75,13 +75,13 @@ export function ProblemSolutionSection() {
         >
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-6">
             <span className="w-2 h-2 bg-red-400 rounded-full mr-2 animate-pulse"></span>
-            The Problem Every Business Faces
+            O problema que sua base enfrenta todo dia
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-balance mb-4 sm:mb-6">
-            <span className="text-red-400">60-70%</span> of Your Leads Are Slipping Away
+            <span className="text-red-400">R$ 25 bi</span> por ano somem em golpes no Brasil
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mx-auto font-light leading-relaxed">
-            While you're busy serving customers, your online inquiries are going unanswered. Here's how we fix it.
+            Enquanto seu cliente decide sozinho sob pressão, o golpista já preparou a armadilha. Veja onde a Rooki entra.
           </p>
         </div>
 
@@ -98,14 +98,14 @@ export function ProblemSolutionSection() {
                 <div className="p-2 rounded-lg bg-red-500/20">
                   <AlertTriangle />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-red-400">The Reality</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-red-400">A realidade</h3>
               </div>
 
               {/* Key Stat */}
               <div className="bg-red-500/10 backdrop-blur-sm border border-red-500/20 rounded-xl p-4 sm:p-6 mb-6">
-                <div className="text-3xl sm:text-4xl font-bold text-red-400 mb-2">4+ Hours</div>
+                <div className="text-3xl sm:text-4xl font-bold text-red-400 mb-2">8 segundos</div>
                 <p className="text-white/80 text-sm sm:text-base">
-                  Average response time, but 78% of customers choose the first business to respond
+                  É o tempo que um golpe de PIX leva pra ser concluído depois do "sim". Tarde demais pra voltar atrás.
                 </p>
               </div>
 
@@ -114,18 +114,20 @@ export function ProblemSolutionSection() {
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-white/70 text-sm sm:text-base">
-                    Staff miss inquiries during off-hours and weekends
+                    O cliente decide sozinho, sem ninguém pra checar a mensagem
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0"></div>
                   <p className="text-white/70 text-sm sm:text-base">
-                    Busy serving customers while online leads go cold
+                    A pressa e a falsa urgência derrubam até quem é atento
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-white/70 text-sm sm:text-base">Marketing spend wasted on unresponded inquiries</p>
+                  <p className="text-white/70 text-sm sm:text-base">
+                    Cada golpe vira chamado de suporte, estorno e cliente que desconfia da marca
+                  </p>
                 </div>
               </div>
             </div>
@@ -138,14 +140,15 @@ export function ProblemSolutionSection() {
                 <div className="p-2 rounded-lg bg-green-500/20">
                   <CheckCircle />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-green-400">Our Solution</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-green-400">A Rooki</h3>
               </div>
 
               {/* Key Stat */}
               <div className="bg-green-500/10 backdrop-blur-sm border border-green-500/20 rounded-xl p-4 sm:p-6 mb-6">
                 <div className="text-3xl sm:text-4xl font-bold text-green-400 mb-2">24/7</div>
                 <p className="text-white/80 text-sm sm:text-base">
-                  AI assistant responds within seconds, books appointments while you sleep
+                  Disponível a qualquer hora no WhatsApp. O cliente manda a mensagem suspeita e recebe o veredito em
+                  segundos.
                 </p>
               </div>
 
@@ -153,15 +156,21 @@ export function ProblemSolutionSection() {
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <CheckCircle />
-                  <p className="text-white/70 text-sm sm:text-base">Instantly qualifies leads and books appointments</p>
+                  <p className="text-white/70 text-sm sm:text-base">
+                    Diz na hora se a mensagem, o link ou a cobrança parecem golpe
+                  </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle />
-                  <p className="text-white/70 text-sm sm:text-base">Integrates with your CRM and calendar system</p>
+                  <p className="text-white/70 text-sm sm:text-base">
+                    Integra à sua operação sem trocar a infraestrutura do cliente
+                  </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle />
-                  <p className="text-white/70 text-sm sm:text-base">Works across website, WhatsApp, email, and phone</p>
+                  <p className="text-white/70 text-sm sm:text-base">
+                    Funciona onde o cliente já está: WhatsApp, app, SMS, e-mail
+                  </p>
                 </div>
               </div>
             </div>
@@ -175,16 +184,16 @@ export function ProblemSolutionSection() {
           }`}
         >
           <div className="text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300">
-            <div className="text-2xl sm:text-3xl font-bold text-white mb-2">€500+</div>
-            <p className="text-white/70 text-xs sm:text-sm">Average value per lost lead</p>
+            <div className="text-2xl sm:text-3xl font-bold text-white mb-2">R$ 1.300</div>
+            <p className="text-white/70 text-xs sm:text-sm">Prejuízo médio por golpe de PIX</p>
           </div>
           <div className="text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300">
-            <div className="text-2xl sm:text-3xl font-bold text-white mb-2">78%</div>
-            <p className="text-white/70 text-xs sm:text-sm">Choose first responder</p>
+            <div className="text-2xl sm:text-3xl font-bold text-white mb-2">+200%</div>
+            <p className="text-white/70 text-xs sm:text-sm">Alta em tentativas de golpe em 2 anos</p>
           </div>
           <div className="text-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300">
-            <div className="text-2xl sm:text-3xl font-bold text-white mb-2">24/7</div>
-            <p className="text-white/70 text-xs sm:text-sm">Our AI never sleeps</p>
+            <div className="text-2xl sm:text-3xl font-bold text-white mb-2">&lt;10s</div>
+            <p className="text-white/70 text-xs sm:text-sm">Para verificar uma mensagem</p>
           </div>
         </div>
 
@@ -195,16 +204,16 @@ export function ProblemSolutionSection() {
           }`}
         >
           <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4 text-balance">
-            Stop Losing Customers Today
+            Pare de perder clientes para golpistas
           </h3>
           <p className="text-sm sm:text-base md:text-lg text-white/70 mb-6 sm:mb-8 max-w-2xl mx-auto font-light leading-relaxed">
-            Get a free response time audit and see exactly how many leads you're missing right now.
+            Faça um diagnóstico gratuito da exposição da sua base a golpes digitais.
           </p>
           <Button
             size="lg"
             className="bg-white text-black rounded-full px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer"
           >
-            Get Free Response Audit
+            Quero o diagnóstico
             <ArrowRight />
           </Button>
         </div>

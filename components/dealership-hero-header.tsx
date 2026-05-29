@@ -51,26 +51,26 @@ export function DealershipHeroHeader() {
   return (
     <div className="space-y-8">
       <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight text-balance animate-fade-in-heading">
-        Never Miss Another Lead
+        Seus clientes nunca mais decidem sozinhos
       </h1>
 
       <div className="animate-fade-in-subheading">
         {/* Mobile version - stacked */}
         <div className="flex flex-col items-center gap-2 sm:hidden">
-          <span className="text-lg text-slate-300">Irish dealerships lose</span>
+          <span className="text-lg text-slate-300">Brasileiros perderam</span>
           <span className="text-3xl font-bold bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent animate-pulse-glow">
-            €{counter}K+
+            R$ {counter} bi+
           </span>
-          <span className="text-lg text-slate-300">annually</span>
+          <span className="text-lg text-slate-300">em golpes por ano</span>
         </div>
 
         {/* Desktop version - single line */}
         <div className="hidden sm:flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
-          <span className="text-xl md:text-2xl text-slate-300">Irish dealerships lose</span>
+          <span className="text-xl md:text-2xl text-slate-300">Brasileiros perderam</span>
           <span className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent animate-pulse-glow">
-            €{counter}K+
+            R$ {counter} bi+
           </span>
-          <span className="text-xl md:text-2xl text-slate-300">annually</span>
+          <span className="text-xl md:text-2xl text-slate-300">em golpes por ano</span>
         </div>
       </div>
 
@@ -89,7 +89,7 @@ export function DealershipHeroHeader() {
 
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="text-center space-y-2 mt-24 sm:mt-32">
-              <p className="text-white/70 text-xs sm:text-base font-medium">Demo Video Coming Soon</p>
+              <p className="text-white/70 text-xs sm:text-base font-medium">Vídeo em breve</p>
             </div>
           </div>
 
@@ -110,7 +110,7 @@ export function DealershipHeroHeader() {
           size="lg"
           className="bg-white text-black rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden w-full sm:w-auto"
         >
-          Book Demo
+          Agendar demo
           <ArrowRight />
         </Button>
         <Button
@@ -118,7 +118,7 @@ export function DealershipHeroHeader() {
           variant="outline"
           className="bg-transparent text-white border-2 border-white/30 rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-white/10 hover:border-white/50 hover:scale-105 hover:shadow-lg cursor-pointer backdrop-blur-sm w-full sm:w-auto"
         >
-          Enquire Now
+          Falar com a gente
         </Button>
       </div>
     </div>
