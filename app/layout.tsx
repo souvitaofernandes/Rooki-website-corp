@@ -20,9 +20,9 @@ const caveat = Caveat({
 })
 
 export const metadata: Metadata = {
-  title: "Cliste - AI Automation for Enterprise",
+  title: "Rooki — Verificação anti-golpe para sua base de clientes",
   description:
-    "Transform your business with intelligent AI automation solutions. Empower your organization to operate at the speed of thought.",
+    "A Rooki verifica se uma mensagem é golpe antes da decisão errada. Funciona onde seu cliente já está, no WhatsApp, e integra à sua operação.",
   generator: "v0.app",
 }
 

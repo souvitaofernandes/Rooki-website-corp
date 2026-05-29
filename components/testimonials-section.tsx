@@ -32,44 +32,44 @@ export function TestimonialsSection() {
 
   const testimonials = [
     {
-      text: "We went from missing 70% of after-hours inquiries to capturing every single lead. Customer bookings increased 50% in the first month.",
-      name: "Mike Rodriguez",
-      role: "Business Owner",
+      text: "Ia pagar um boleto de 'regularização' que parecia do governo. Mandei pra Rooki e ela mostrou que o órgão não cobra assim.",
+      name: "Usuária, 54 anos",
+      role: "Golpe de falso boleto",
     },
     {
-      text: "We spend so much less time thinking about lead response because of the instant engagement Cliste offers us.",
-      name: "Sarah Chen",
-      role: "Sales Manager",
+      text: "Recebi ligação do 'banco' pedindo o código do SMS. A Rooki já tinha me avisado que banco nunca pede isso. Não passei nada.",
+      name: "Usuário, 31 anos",
+      role: "Golpe do falso atendente",
     },
     {
-      text: "With Cliste, our conversion rates increased by 85% and boosted our weekend revenue by 40%.",
-      name: "Michael Torres",
-      role: "General Manager",
+      text: "Quase caí num link de 'prêmio' no fim de semana. Verifiquei e era página clonada. Bloqueei na hora.",
+      name: "Usuária, 27 anos",
+      role: "Golpe de phishing",
     },
     {
-      text: "The AI handles customer questions 24/7, so we never miss a potential sale. Our team can focus on closing deals instead of answering basic questions.",
-      name: "Jennifer Walsh",
-      role: "Operations Director",
+      text: "Como parceiros, a queda nos chamados de estorno foi o que mais nos chamou atenção. O cliente resolve a dúvida antes de errar.",
+      name: "Head de Cyber",
+      role: "Fintech parceira",
     },
     {
-      text: "Customer satisfaction scores improved dramatically since implementing Cliste. Clients love the instant responses and personalized recommendations.",
-      name: "David Kim",
-      role: "Customer Experience Manager",
+      text: "Meu pai ia transferir pra 'conta segura' que o golpista mandou. Verificou comigo na Rooki e parou a tempo.",
+      name: "Familiar de usuário",
+      role: "Golpe da conta segura",
     },
     {
-      text: "Our retail store saw a 60% increase in qualified leads. The chatbot handles product inquiries perfectly while we focus on in-person customers.",
-      name: "Lisa Thompson",
-      role: "Store Manager",
+      text: "Encaminhei um áudio de WhatsApp pedindo dinheiro como se fosse minha filha. A Rooki sinalizou clonagem de conta.",
+      name: "Usuária, 60 anos",
+      role: "Golpe do familiar",
     },
     {
-      text: "Property inquiries are handled instantly now. We've closed 3x more deals since implementing Cliste's AI assistant.",
-      name: "James Wilson",
-      role: "Real Estate Broker",
+      text: "Recebi cobrança de uma compra que não fiz. Verifiquei antes de clicar em 'contestar' e era o golpe que tava no link.",
+      name: "Usuário, 43 anos",
+      role: "Golpe da falsa compra",
     },
     {
-      text: "Hotel bookings increased 45% with 24/7 availability. Guests get immediate answers about amenities and availability.",
-      name: "Maria Garcia",
-      role: "Hospitality Manager",
+      text: "O bom é não precisar entender de tecnologia. Mando o que recebo e a Rooki me diz na hora se é golpe.",
+      name: "Usuário, 68 anos",
+      role: "Golpe verificado a tempo",
     },
   ]
 
@@ -94,14 +94,14 @@ export function TestimonialsSection() {
         <div className="text-center mb-16 md:mb-32">
           <div className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out inline-flex items-center gap-2 text-white/60 text-sm font-medium tracking-wider uppercase mb-6">
             <div className="w-8 h-px bg-white/30"></div>
-            Success Stories
+            Casos reais
             <div className="w-8 h-px bg-white/30"></div>
           </div>
           <h2 className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight text-balance">
-            The businesses we <span className="font-medium italic">empower</span>
+            Golpes que não <span className="font-medium italic">aconteceram</span>
           </h2>
           <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Discover how leading businesses are transforming their customer engagement with AI-powered chat solutions
+            Casos reais de pessoas que checaram a tempo. Identidades preservadas.
           </p>
         </div>
 

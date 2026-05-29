@@ -6,10 +6,10 @@ import Image from "next/image"
 import Link from "next/link"
 
 const navigation = [
-  { name: "Dentists", href: "#features" },
-  { name: "Barbers & Salons", href: "#ai-team" },
-  { name: "Restaurants", href: "#testimonials" },
-  { name: "Car Dealerships", href: "/car-dealerships" },
+  { name: "Produto", href: "#features" },
+  { name: "Demo", href: "#ai-team" },
+  { name: "Depoimentos", href: "#testimonials" },
+  { name: "Para Parceiros", href: "/car-dealerships" },
 ]
 
 export function GlassmorphismNav() {
@@ -122,7 +122,7 @@ export function GlassmorphismNav() {
                 <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
                   <Image
                     src="/images/cliste-logo.png"
-                    alt="Cliste"
+                    alt="Rooki"
                     width={40}
                     height={40}
                     className="w-full h-full object-contain"
@@ -159,7 +159,7 @@ export function GlassmorphismNav() {
                   className="relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group"
                   onClick={() => scrollToSection("#contact")}
                 >
-                  <span className="mr-2">Get Started</span>
+                  <span className="mr-2">Falar com a gente</span>
                   <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
               </div>
@@ -246,7 +246,7 @@ export function GlassmorphismNav() {
                   }}
                   onClick={() => scrollToSection("#contact")}
                 >
-                  <span className="mr-2">Get Started</span>
+                  <span className="mr-2">Falar com a gente</span>
                   <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
               </div>
