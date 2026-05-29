@@ -78,10 +78,11 @@ export function ProblemSolutionSection() {
             O problema que sua base enfrenta todo dia
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-balance mb-4 sm:mb-6">
-            <span className="text-red-400">R$ 25 bi</span> por ano somem em golpes no Brasil
+            <span className="text-red-400">R$ 10,1 bi</span> por ano somem em golpes no Brasil
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mx-auto font-light leading-relaxed">
             Enquanto seu cliente decide sozinho sob pressão, o golpista já preparou a armadilha. Veja onde a Rooki entra.
+            (Fonte: Febraban, 2024)
           </p>
         </div>
 

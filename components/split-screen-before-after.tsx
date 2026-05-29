@@ -275,7 +275,7 @@ export function SplitScreenBeforeAfter() {
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="text-white font-semibold text-[11px] sm:text-xs lg:text-sm truncate">
-                            John Doe
+                            Cliente
                           </div>
                           <div className="text-slate-400 text-[9px] sm:text-[10px] lg:text-xs">Cliente</div>
                         </div>
@@ -331,7 +331,7 @@ export function SplitScreenBeforeAfter() {
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="text-white font-semibold text-[11px] sm:text-xs lg:text-sm truncate">
-                            John Doe
+                            Cliente
                           </div>
                           <div className="text-slate-300 text-[9px] sm:text-[10px] lg:text-xs">Cliente</div>
                         </div>
@@ -434,7 +434,7 @@ export function SplitScreenBeforeAfter() {
                       <div className="bg-slate-900 rounded-[2rem] sm:rounded-[2.5rem] p-2 sm:p-3 lg:p-4 shadow-2xl border-[6px] sm:border-8 border-slate-800 aspect-[9/19.5] lg:aspect-auto lg:h-[700px] overflow-hidden">
                         <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-t-xl sm:rounded-t-[1.25rem] px-3 py-4 sm:py-5 lg:py-8 text-center border-b border-slate-700">
                           <div className="text-red-400 text-[9px] sm:text-[10px] lg:text-sm mb-2 lg:mb-3 font-medium tracking-wide">
-                            CHAMADA PERDIDA
+                            GOLPE EVITADO
                           </div>
                           <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-20 lg:h-20 mx-auto rounded-full bg-gradient-to-br from-red-500 via-red-600 to-red-700 flex items-center justify-center mb-2 sm:mb-3 lg:mb-4 shadow-lg shadow-red-500/30 ring-4 ring-red-500/20">
                             <svg
@@ -451,42 +451,42 @@ export function SplitScreenBeforeAfter() {
                               />
                             </svg>
                           </div>
-                          <div className="text-white font-bold text-xs sm:text-sm lg:text-lg mb-1">Sarah Mitchell</div>
+                          <div className="text-white font-bold text-xs sm:text-sm lg:text-lg mb-1">Contato suspeito</div>
                           <div className="text-slate-400 text-[9px] sm:text-[10px] lg:text-sm font-mono">
-                            +353 87 123 4567
+                            Número desconhecido
                           </div>
                         </div>
                         <div className="bg-slate-900 rounded-b-xl sm:rounded-b-[1.25rem] p-2 sm:p-3 lg:p-4 h-[calc(100%-140px)] lg:h-[calc(100%-200px)] overflow-hidden flex flex-col">
                           <div className="bg-gradient-to-br from-red-500/20 to-red-600/20 border-2 border-red-500/40 rounded-xl p-2 lg:p-3 mb-2 lg:mb-3">
                             <div className="text-center">
                               <div className="text-red-400 text-[10px] sm:text-xs lg:text-sm font-bold mb-1">
-                                ATENDIMENTO FECHADO
+                                VERIFICAÇÃO CONCLUÍDA
                               </div>
                               <div className="text-slate-300 text-[8px] sm:text-[10px] lg:text-xs">
-                                Horário: seg a sex
+                                Áudio analisado
                               </div>
                               <div className="text-white text-[9px] sm:text-[10px] lg:text-sm font-semibold">
-                                9h - 17h
+                                Risco identificado
                               </div>
                             </div>
                           </div>
 
                           <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-2 lg:p-3 mb-2 lg:mb-3">
                             <div className="text-slate-300 text-[9px] sm:text-[10px] lg:text-sm font-semibold mb-1.5">
-                              Detalhes da chamada
+                              Resultado
                             </div>
                             <div className="space-y-1 text-[8px] sm:text-[9px] lg:text-xs">
                               <div className="flex justify-between">
-                                <span className="text-slate-400">Horário</span>
-                                <span className="text-white font-medium">19h00</span>
+                                <span className="text-slate-400">Tipo</span>
+                                <span className="text-white font-medium">falso atendente</span>
                               </div>
                               <div className="flex justify-between">
-                                <span className="text-slate-400">Duração</span>
-                                <span className="text-white font-medium">3 toques</span>
+                                <span className="text-slate-400">Código</span>
+                                <span className="text-white font-medium">não informado</span>
                               </div>
                               <div className="flex justify-between">
                                 <span className="text-slate-400">Status</span>
-                                <span className="text-red-400 font-semibold">Não atendida</span>
+                                <span className="text-red-400 font-semibold">golpe evitado</span>
                               </div>
                             </div>
                           </div>
@@ -501,11 +501,11 @@ export function SplitScreenBeforeAfter() {
                                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                               </svg>
                               <span className="text-slate-300 text-[9px] sm:text-[10px] lg:text-xs font-medium">
-                                Caixa postal
+                                Orientação
                               </span>
                             </div>
                             <div className="text-slate-400 text-[8px] sm:text-[9px] lg:text-xs italic leading-relaxed">
-                              "Olá, você ligou para o atendimento. Estamos fechados. Deixe sua mensagem..."
+                              "A Rooki identificou a tática e orientou o cliente a não passar nenhum dado."
                             </div>
                           </div>
 
@@ -523,7 +523,7 @@ export function SplitScreenBeforeAfter() {
                                 />
                               </svg>
                               <span className="text-red-400 text-[9px] sm:text-[10px] lg:text-sm font-bold uppercase tracking-wide">
-                                Golpe consumado
+                                Golpe evitado
                               </span>
                             </div>
                           </div>
@@ -537,7 +537,7 @@ export function SplitScreenBeforeAfter() {
                     <div className="bg-slate-900 rounded-[2rem] sm:rounded-[2.5rem] p-2 sm:p-3 lg:p-4 shadow-2xl border-[6px] sm:border-8 border-slate-800 aspect-[9/19.5] lg:aspect-auto lg:h-[600px] overflow-hidden">
                       <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-t-xl sm:rounded-t-[1.25rem] px-3 py-4 sm:py-5 lg:py-8 text-center border-b border-slate-700">
                         <div className="text-slate-400 text-[9px] sm:text-[10px] lg:text-sm mb-2 lg:mb-3 font-medium tracking-wide">
-                          CHAMADA RECEBIDA
+                          ÁUDIO RECEBIDO
                         </div>
                         <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-20 lg:h-20 mx-auto rounded-full bg-gradient-to-br from-orange-500 via-orange-600 to-red-600 flex items-center justify-center mb-2 sm:mb-3 lg:mb-4 shadow-lg shadow-orange-500/30 ring-4 ring-orange-500/20">
                           <svg
@@ -554,9 +554,9 @@ export function SplitScreenBeforeAfter() {
                             />
                           </svg>
                         </div>
-                        <div className="text-white font-bold text-xs sm:text-sm lg:text-lg mb-1">Sarah Mitchell</div>
+                        <div className="text-white font-bold text-xs sm:text-sm lg:text-lg mb-1">Contato suspeito</div>
                         <div className="text-slate-400 text-[9px] sm:text-[10px] lg:text-xs font-mono">
-                          +353 87 123 4567
+                          Número desconhecido
                         </div>
                       </div>
 
@@ -597,38 +597,38 @@ export function SplitScreenBeforeAfter() {
                               />
                             </svg>
                             <span className="text-slate-300 text-[9px] sm:text-[10px] lg:text-sm font-semibold">
-                              Conversa ao vivo
+                              Áudio encaminhado
                             </span>
                           </div>
                           <div className="space-y-2 lg:space-y-3 text-[8px] sm:text-[9px] lg:text-xs">
                             <div className="bg-slate-900/50 rounded-lg p-2 border-l-2 border-orange-500">
                               <div className="text-orange-400 font-semibold mb-0.5">Rooki</div>
                               <div className="text-slate-300 leading-relaxed">
-                                "Recebeu uma ligação dizendo ser do seu banco? Me conte o que pediram."
+                                "Recebi o áudio. É a tática do falso atendente do banco."
                               </div>
                             </div>
                             <div className="bg-slate-900/50 rounded-lg p-2 border-l-2 border-blue-500">
                               <div className="text-blue-400 font-semibold mb-0.5">Cliente</div>
                               <div className="text-slate-300 leading-relaxed">
-                                "Pediram meu código de segurança pra cancelar uma compra suspeita."
+                                "Eles pediram meu código de segurança..."
                               </div>
                             </div>
                             <div className="bg-slate-900/50 rounded-lg p-2 border-l-2 border-orange-500">
                               <div className="text-orange-400 font-semibold mb-0.5">Rooki</div>
                               <div className="text-slate-300 leading-relaxed">
-                                "Isso é golpe. Nenhum banco pede código ou senha por telefone."
+                                "Banco nunca pede código por áudio ou ligação. Não passe nada."
                               </div>
                             </div>
                             <div className="bg-slate-900/50 rounded-lg p-2 border-l-2 border-blue-500">
                               <div className="text-blue-400 font-semibold mb-0.5">Cliente</div>
                               <div className="text-slate-300 leading-relaxed">
-                                "Ainda bem que liguei pra você. O que eu faço agora?"
+                                "Ainda bem que encaminhei o áudio. O que eu faço agora?"
                               </div>
                             </div>
                             <div className="bg-slate-900/50 rounded-lg p-2 border-l-2 border-orange-500">
                               <div className="text-orange-400 font-semibold mb-0.5">Rooki</div>
                               <div className="text-slate-300 leading-relaxed">
-                                "Desligue, não informe nada e ligue para o número oficial no verso do seu cartão.
+                                "Não retorne esse contato. Ligue para o número oficial no verso do seu cartão.
                                 Quer que eu te oriente no passo a passo?"
                               </div>
                             </div>
@@ -687,19 +687,19 @@ export function SplitScreenBeforeAfter() {
                         d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                       />
                     </svg>
-                    <span className="text-orange-600 font-semibold text-sm uppercase tracking-wide">Chamadas de voz</span>
+                    <span className="text-orange-600 font-semibold text-sm uppercase tracking-wide">Áudios e voz</span>
                   </div>
 
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-balance">
-                    <span className="text-slate-900">Verifique qualquer ligação</span>{" "}
+                    <span className="text-slate-900">Verifique áudios suspeitos</span>{" "}
                     <span className="bg-gradient-to-r from-orange-600 via-orange-500 to-red-500 bg-clip-text text-transparent">
-                      na hora, 24/7
+                      antes de acreditar
                     </span>
                   </h2>
 
                   <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-                    Seu cliente liga e descreve a chamada suspeita. A Rooki identifica o golpe e orienta o passo seguro,
-                    a qualquer hora do dia ou da noite.
+                    O golpe do falso atendente e os áudios falsos crescem rápido. Hoje a Rooki verifica áudios e
+                    mensagens de voz que seu cliente encaminha. A análise de chamadas ao vivo está em desenvolvimento.
                   </p>
 
                   <div className="space-y-4">
@@ -713,8 +713,8 @@ export function SplitScreenBeforeAfter() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <p className="text-slate-700 leading-relaxed">
-                        Atende cada ligação na hora com uma conversa natural que entende golpes de banco, falso
-                        atendente e cobranças falsas. O cliente nunca fica sem resposta no momento da dúvida.
+                        Seu cliente encaminha o áudio da abordagem suspeita e a Rooki orienta o passo seguro: banco não
+                        pede senha nem código por telefone ou áudio.
                       </p>
                     </div>
 
@@ -728,8 +728,8 @@ export function SplitScreenBeforeAfter() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <p className="text-slate-700 leading-relaxed">
-                        Explica por que a mensagem é golpe, indica o passo seguro e tira dúvidas sobre PIX, senhas e
-                        códigos em conversas que soam completamente humanas.
+                        A Rooki explica por que aquilo é golpe em linguagem simples e indica o que fazer: desligar e
+                        ligar de volta no número oficial do cartão, nunca no número que ligou.
                       </p>
                     </div>
 
@@ -743,8 +743,8 @@ export function SplitScreenBeforeAfter() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <p className="text-slate-700 leading-relaxed">
-                        Receba insights em tempo real de cada chamada, incluindo o tipo de golpe, o nível de risco e a
-                        ação recomendada. Sua equipe enxerga os ataques mais frequentes contra a sua base.
+                        Em breve: análise de chamadas ao vivo, para identificar o golpe enquanto a ligação acontece. Em
+                        desenvolvimento.
                       </p>
                     </div>
                   </div>
@@ -776,7 +776,7 @@ export function SplitScreenBeforeAfter() {
                       />
                     </svg>
                     <span className="text-orange-600 font-semibold text-sm uppercase tracking-wide">
-                      Service & Parts
+                      Cobranças e boletos
                     </span>
                   </div>
 
