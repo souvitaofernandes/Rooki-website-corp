@@ -62,7 +62,13 @@ export function Footer() {
 
       <div className="grid w-full gap-8 xl:grid-cols-3 xl:gap-8">
         <AnimatedContainer className="space-y-4">
-          <Image src="/images/cliste-logo.png" alt="Rooki Logo" width={64} height={64} className="size-16" />
+          <Image
+            src="/images/rooki-logo-horizontal-white.svg"
+            alt="Rooki Logo"
+            width={158}
+            height={52}
+            className="h-12 w-auto object-contain"
+          />
           <div className="text-muted-foreground mt-8 text-sm md:mt-0 md:block hidden">
             <p>© {new Date().getFullYear()} Rooki. Todos os direitos reservados.</p>
           </div>

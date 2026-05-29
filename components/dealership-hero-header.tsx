@@ -26,7 +26,7 @@ const AlertIcon = () => (
 
 export function DealershipHeroHeader() {
   const [counter, setCounter] = useState(0)
-  const targetValue = 200
+    const targetValue = 297
 
   useEffect(() => {
     const duration = 2000 // 2 seconds
@@ -58,19 +58,19 @@ export function DealershipHeroHeader() {
         {/* Mobile version - stacked */}
         <div className="flex flex-col items-center gap-2 sm:hidden">
           <span className="text-lg text-slate-300">Brasileiros perderam</span>
-          <span className="text-3xl font-bold bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent animate-pulse-glow">
-            R$ {counter} bi+
+          <span className="text-3xl font-bold bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent animate-pulse-glow">
+            R$ {counter} bi
           </span>
-          <span className="text-lg text-slate-300">em golpes por ano</span>
+          <span className="text-lg text-slate-300">em golpes em 2024 (estimativa GASA)</span>
         </div>
 
         {/* Desktop version - single line */}
         <div className="hidden sm:flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
           <span className="text-xl md:text-2xl text-slate-300">Brasileiros perderam</span>
-          <span className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent animate-pulse-glow">
-            R$ {counter} bi+
+          <span className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent animate-pulse-glow">
+            R$ {counter} bi
           </span>
-          <span className="text-xl md:text-2xl text-slate-300">em golpes por ano</span>
+          <span className="text-xl md:text-2xl text-slate-300">em golpes em 2024 (estimativa GASA)</span>
         </div>
       </div>
 

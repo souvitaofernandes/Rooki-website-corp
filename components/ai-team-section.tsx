@@ -283,13 +283,13 @@ export function AITeamSection() {
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                   }`}
                 >
-                  <div className="bg-slate-900 rounded-[2.5rem] p-2 shadow-2xl">
+                  <div className="bg-[#0E0E33] rounded-[2.5rem] p-2 shadow-2xl">
                     <div className="bg-black rounded-[2rem] p-1">
                       <div className="bg-white rounded-[1.5rem] overflow-hidden">
                         {/* Status bar */}
                         <div className="bg-slate-50 px-6 py-3 flex justify-between items-center text-sm">
                           <div className="flex items-center gap-1">
-                            <div className="w-2 h-2 bg-slate-900 rounded-full"></div>
+                            <div className="w-2 h-2 bg-[#0E0E33] rounded-full"></div>
                             <span className="font-medium text-slate-700">Rooki</span>
                           </div>
                           <div className="flex items-center gap-1 text-slate-500">
@@ -298,7 +298,7 @@ export function AITeamSection() {
                           </div>
                         </div>
 
-                        <div className="bg-slate-900 px-6 py-4 text-white">
+                        <div className="bg-[#0E0E33] px-6 py-4 text-white">
                           <div className="flex items-center gap-3">
                             <img
                               src="/images/michael-ai-agent.jpg"
@@ -337,7 +337,7 @@ export function AITeamSection() {
                               <div
                                 className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${
                                   message.sender === "customer"
-                                    ? "bg-slate-900 text-white rounded-br-md"
+                                    ? "bg-[#0E0E33] text-white rounded-br-md"
                                     : "bg-white text-slate-800 shadow-sm border border-slate-200 rounded-bl-md"
                                 }`}
                               >
@@ -381,7 +381,7 @@ export function AITeamSection() {
                         <div className="p-4 bg-white border-t border-slate-200">
                           <div className="flex items-center gap-3 bg-slate-100 rounded-full px-4 py-2">
                             <span className="text-slate-500 text-sm lg:text-base flex-1">Rooki está verificando...</span>
-                            <div className="w-6 h-6 bg-slate-900 rounded-full flex items-center justify-center">
+                            <div className="w-6 h-6 bg-[#0E0E33] rounded-full flex items-center justify-center">
                               <Zap className="w-3 h-3 text-white" />
                             </div>
                           </div>

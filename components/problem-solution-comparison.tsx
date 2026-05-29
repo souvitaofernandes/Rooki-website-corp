@@ -82,7 +82,7 @@ export function ProblemSolutionComparison() {
 
         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4">
           Stop Losing{" "}
-          <span className="bg-gradient-to-r from-red-400 via-orange-400 to-red-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">
             €200K+
           </span>{" "}
           Annually

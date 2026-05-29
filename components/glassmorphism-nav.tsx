@@ -119,13 +119,14 @@ export function GlassmorphismNav() {
                 href="/"
                 className="flex items-center hover:scale-105 transition-transform duration-200 cursor-pointer"
               >
-                <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
+                <div className="h-10 md:h-12 flex items-center justify-center">
                   <Image
-                    src="/images/cliste-logo.png"
+                    src="/images/rooki-logo-horizontal-white.svg"
                     alt="Rooki"
-                    width={40}
-                    height={40}
-                    className="w-full h-full object-contain"
+                    width={137}
+                    height={45}
+                    priority
+                    className="h-7 md:h-8 w-auto object-contain"
                   />
                 </div>
               </Link>
