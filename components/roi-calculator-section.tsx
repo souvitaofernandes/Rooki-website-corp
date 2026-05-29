@@ -127,7 +127,7 @@ export function ROICalculatorSection() {
                     <SelectTrigger className="bg-gray-700/50 border-gray-600 text-white">
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent className="bg-gray-800 border-gray-700">
+                    <SelectContent className="bg-[#15153f] border-gray-700">
                       <SelectItem value="ecommerce">Fintech</SelectItem>
                       <SelectItem value="retail">Banco digital</SelectItem>
                       <SelectItem value="realestate">Telecom</SelectItem>

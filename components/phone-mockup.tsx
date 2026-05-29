@@ -20,9 +20,9 @@ export function PhoneMockup({
 }: PhoneMockupProps) {
   return (
     <div className="relative mx-auto w-[280px] sm:w-[320px] lg:w-[360px]">
-      <div className="relative bg-slate-900 rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-2xl border-4 sm:border-8 border-slate-900">
+      <div className="relative bg-[#0E0E33] rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-2xl border-4 sm:border-8 border-slate-900">
         {/* Phone Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 sm:w-40 h-6 sm:h-7 bg-slate-900 rounded-b-2xl z-10"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 sm:w-40 h-6 sm:h-7 bg-[#0E0E33] rounded-b-2xl z-10"></div>
 
         {/* Phone Screen */}
         <div className="bg-white rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden relative">

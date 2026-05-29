@@ -28,7 +28,7 @@ export function OmnichannelSection() {
     {
       icon: Share2,
       name: "Instagram",
-      color: "from-purple-500 via-pink-500 to-orange-500",
+      color: "from-purple-500 via-[#04C5FF] to-[#04C5FF]",
       description: "DM automation",
     },
     {
@@ -40,7 +40,7 @@ export function OmnichannelSection() {
     {
       icon: Phone,
       name: "Phone",
-      color: "from-orange-500 to-red-500",
+      color: "from-[#443CFF] to-[#04C5FF]",
       description: "Voice receptionist",
     },
   ]

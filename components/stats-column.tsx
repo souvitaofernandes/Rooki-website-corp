@@ -19,7 +19,7 @@ export function StatsColumn({ stats, isMobile = false }: StatsColumnProps) {
         <div key={index}>
           <div className="text-center space-y-2">
             <div
-              className={`${textSize} ${stat.gradient ? "bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent" : "text-slate-900"} font-bold`}
+              className={`${textSize} ${stat.gradient ? "bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent" : "text-slate-900"} font-bold`}
             >
               {stat.value}
             </div>

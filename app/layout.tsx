@@ -5,7 +5,7 @@ import "./globals.css"
 import { PageTransition } from "@/components/page-transition"
 import { NavigationTransition } from "@/components/navigation-transition"
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Dancing_Script, Caveat } from "next/font/google"
+import { Dancing_Script, Caveat, Sora, Montserrat } from "next/font/google"
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -19,11 +19,30 @@ const caveat = Caveat({
   display: "swap",
 })
 
+const sora = Sora({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-sora",
+  display: "swap",
+})
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-montserrat",
+  display: "swap",
+})
+
 export const metadata: Metadata = {
   title: "Rooki — Verificação anti-golpe para sua base de clientes",
   description:
     "A Rooki verifica se uma mensagem é golpe antes da decisão errada. Funciona onde seu cliente já está, no WhatsApp, e integra à sua operação.",
   generator: "v0.app",
+  icons: {
+    icon: "/images/rooki-symbol.svg",
+    shortcut: "/images/rooki-symbol.svg",
+    apple: "/images/rooki-symbol.svg",
+  },
 }
 
 export default function RootLayout({
@@ -32,8 +51,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`font-sans antialiased ${dancingScript.variable} ${caveat.variable}`}>
+    <html lang="en" className="dark bg-background">
+      <body
+        className={`font-sans antialiased ${sora.variable} ${montserrat.variable} ${dancingScript.variable} ${caveat.variable}`}
+      >
         <Suspense fallback={null}>
           <NavigationTransition />
           <PageTransition>{children}</PageTransition>

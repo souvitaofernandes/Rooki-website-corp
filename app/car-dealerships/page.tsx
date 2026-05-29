@@ -12,7 +12,7 @@ import { WhatsAppDemoSection } from "@/components/whatsapp-demo-section"
 
 export default function CarDealershipsPage() {
   return (
-    <div className="min-h-screen bg-black overflow-hidden">
+    <div className="min-h-screen bg-[#070725] overflow-hidden">
       <main className="min-h-screen relative overflow-hidden">
         {/* Aurora background */}
         <div className="fixed inset-0 w-full h-full">
