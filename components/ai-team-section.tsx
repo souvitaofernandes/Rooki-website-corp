@@ -111,42 +111,41 @@ export function AITeamSection() {
               </div>
             </div>
 
-            {/* Right side - Phone mockup */}
+            {/* Right side - Video embed vertical 9:16 */}
             <div className="w-full lg:w-1/2 flex justify-center order-1 lg:order-2">
-              <div className="max-w-md w-full">
+              <div
+                className={`transition-all duration-1000 delay-600 w-full ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
+                style={{ maxWidth: '340px' }}
+              >
+                {/* Container 9:16 — overflow:hidden faz o crop da UI do YouTube */}
                 <div
-                  className={`relative transition-all duration-1000 delay-600 ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                  }`}
+                  style={{
+                    position: 'relative',
+                    width: '100%',
+                    aspectRatio: '9 / 16',
+                    borderRadius: '1.5rem',
+                    overflow: 'hidden',
+                    boxShadow: '0 25px 50px -12px rgba(0,0,0,0.4)',
+                    background: '#000',
+                  }}
                 >
-                  <div className="bg-[#0E0E33] rounded-[2.5rem] p-2 shadow-2xl">
-                    <div className="bg-black rounded-[2rem] p-1">
-                      {/* Phone screen — vídeo vertical com crop para ocultar chrome do YouTube */}
-                      <div className="bg-black rounded-[1.5rem] overflow-hidden" style={{ height: '560px' }}>
-                        <div
-                          className="relative w-full h-full overflow-hidden"
-                          style={{ borderRadius: '1.5rem' }}
-                        >
-                          <iframe
-                            src="https://www.youtube.com/embed/0koqGoM3MW4?autoplay=1&mute=1&loop=1&playlist=0koqGoM3MW4&controls=0&modestbranding=1&playsinline=1&rel=0"
-                            allow="autoplay; encrypted-media; fullscreen"
-                            allowFullScreen
-                            title="Rooki em ação"
-                            style={{
-                              position: 'absolute',
-                              top: '50%',
-                              left: '50%',
-                              transform: 'translate(-50%, -50%)',
-                              width: '120%',
-                              height: '120%',
-                              border: 'none',
-                              borderRadius: '1.5rem',
-                            }}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <iframe
+                    src="https://www.youtube.com/embed/0koqGoM3MW4?autoplay=1&mute=1&loop=1&playlist=0koqGoM3MW4&controls=0&modestbranding=1&playsinline=1&rel=0"
+                    allow="autoplay; encrypted-media; fullscreen"
+                    allowFullScreen
+                    title="Rooki em ação"
+                    style={{
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)',
+                      width: '135%',
+                      height: '135%',
+                      border: 'none',
+                    }}
+                  />
                 </div>
               </div>
             </div>
