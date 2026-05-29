@@ -46,7 +46,8 @@ export function HeroSection() {
             <span className="text-foreground">antes</span>
             <RotatingText
               texts={["da decisão", "do clique", "do PIX", "da senha", "do prejuízo"]}
-              mainClassName="px-2 sm:px-2 md:px-3 bg-white text-black overflow-hidden py-1 sm:py-1 md:py-2 justify-center rounded-lg shadow-lg"
+              mainClassName="px-2 sm:px-2 md:px-3 overflow-hidden py-1 sm:py-1 md:py-2 justify-center rounded-lg"
+              style={{ color: "#04C5FF" }}
               staggerFrom={"last"}
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
