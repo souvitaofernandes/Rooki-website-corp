@@ -111,7 +111,7 @@ export function AITeamSection() {
               </div>
             </div>
 
-            {/* Right side - Video embed vertical 9:16 */}
+            {/* Right side - Vídeo nativo vertical 9:16 */}
             <div className="w-full lg:w-1/2 flex justify-center order-1 lg:order-2">
               <div
                 className={`transition-all duration-1000 delay-600 w-full ${
@@ -119,11 +119,8 @@ export function AITeamSection() {
                 }`}
                 style={{ maxWidth: '340px' }}
               >
-                {/* Container 9:16 — overflow:hidden faz o crop da UI do YouTube */}
                 <div
                   style={{
-                    position: 'relative',
-                    width: '100%',
                     aspectRatio: '9 / 16',
                     borderRadius: '1.5rem',
                     overflow: 'hidden',
@@ -131,19 +128,17 @@ export function AITeamSection() {
                     background: '#000',
                   }}
                 >
-                  <iframe
-                    src="https://www.youtube.com/embed/0koqGoM3MW4?autoplay=1&mute=1&loop=1&playlist=0koqGoM3MW4&controls=0&modestbranding=1&playsinline=1&rel=0"
-                    allow="autoplay; encrypted-media; fullscreen"
-                    allowFullScreen
-                    title="Rooki em ação"
+                  <video
+                    src="/videos/rooki-whatsapp.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
                     style={{
-                      position: 'absolute',
-                      top: '50%',
-                      left: '50%',
-                      transform: 'translate(-50%, -50%)',
-                      width: '135%',
-                      height: '135%',
-                      border: 'none',
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block',
                     }}
                   />
                 </div>
