@@ -4,21 +4,28 @@ import { useState, useEffect } from "react"
 import { Slider } from "@/components/ui/slider"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card } from "@/components/ui/card"
-import { TrendingUp, Users, DollarSign, Clock } from "lucide-react"
+import { TrendingUp, Users, DollarSign, ShieldCheck } from "lucide-react"
 
 interface CalculatorInputs {
-  monthlyVisitors: number
-  currentConversionRate: number
-  averageOrderValue: number
-  businessType: string
+  customerBase: number
+  scamRate: number
+  averageLoss: number
+  segment: string
 }
+
+const FATIA_EVITAVEL = 0.4
+
+const formatBR = (value: number) =>
+  Math.round(value).toLocaleString("pt-BR", { maximumFractionDigits: 0 })
+
+const formatBRL = (value: number) => `R$ ${formatBR(value)}`
 
 export function ROICalculatorSection() {
   const [inputs, setInputs] = useState<CalculatorInputs>({
-    monthlyVisitors: 10000,
-    currentConversionRate: 2,
-    averageOrderValue: 150,
-    businessType: "ecommerce",
+    customerBase: 100000,
+    scamRate: 24,
+    averageLoss: 1300,
+    segment: "fintech",
   })
 
   const [isVisible, setIsVisible] = useState(false)
@@ -43,46 +50,10 @@ export function ROICalculatorSection() {
     return () => observer.disconnect()
   }, [])
 
-  const getBusinessDefaults = () => {
-    const businessDefaults = {
-      ecommerce: { avgOrder: 85, maxOrder: 500, conversion: 35, response: 80, satisfaction: 45 },
-      retail: { avgOrder: 65, maxOrder: 300, conversion: 30, response: 75, satisfaction: 40 },
-      realestate: { avgOrder: 5000, maxOrder: 50000, conversion: 40, response: 85, satisfaction: 50 },
-      hospitality: { avgOrder: 180, maxOrder: 1000, conversion: 25, response: 70, satisfaction: 35 },
-      healthcare: { avgOrder: 250, maxOrder: 2000, conversion: 45, response: 90, satisfaction: 55 },
-      finance: { avgOrder: 1200, maxOrder: 10000, conversion: 35, response: 85, satisfaction: 50 },
-      automotive: { avgOrder: 25000, maxOrder: 100000, conversion: 30, response: 75, satisfaction: 40 },
-      default: { avgOrder: 150, maxOrder: 2000, conversion: 35, response: 80, satisfaction: 45 },
-    }
-
-    return businessDefaults[inputs.businessType as keyof typeof businessDefaults] || businessDefaults.default
-  }
-
-  useEffect(() => {
-    const defaults = getBusinessDefaults()
-    setInputs((prev) => ({ ...prev, averageOrderValue: defaults.avgOrder }))
-  }, [inputs.businessType])
-
-  const businessConfig = getBusinessDefaults()
-  const improvements = {
-    conversion: businessConfig.conversion,
-    response: businessConfig.response,
-    satisfaction: businessConfig.satisfaction,
-  }
-
-  // Current metrics
-  const currentLeads = Math.round((inputs.monthlyVisitors * inputs.currentConversionRate) / 100)
-  const currentRevenue = currentLeads * inputs.averageOrderValue
-
-  // Improved metrics with AI chatbot
-  const newConversionRate = inputs.currentConversionRate * (1 + improvements.conversion / 100)
-  const newLeads = Math.round((inputs.monthlyVisitors * newConversionRate) / 100)
-  const newRevenue = newLeads * inputs.averageOrderValue
-
-  // Gains
-  const additionalLeads = newLeads - currentLeads
-  const additionalRevenue = newRevenue - currentRevenue
-  const revenueIncrease = ((newRevenue - currentRevenue) / currentRevenue) * 100
+  const vitimasAno = inputs.customerBase * (inputs.scamRate / 100)
+  const perdaAnual = vitimasAno * inputs.averageLoss
+  const perdaEvitavel = perdaAnual * FATIA_EVITAVEL
+  const golpesEvitaveis = vitimasAno * FATIA_EVITAVEL
 
   return (
     <section id="roi-calculator" className="py-16 md:py-20 px-4 relative">
@@ -117,40 +88,40 @@ export function ROICalculatorSection() {
               <h3 className="text-xl md:text-2xl font-semibold text-white mb-6 md:mb-8">Dados da sua base</h3>
 
               <div className="space-y-8 flex-1">
-                {/* Business Type */}
+                {/* Segment */}
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-3">Segmento</label>
                   <Select
-                    value={inputs.businessType}
-                    onValueChange={(value) => setInputs((prev) => ({ ...prev, businessType: value }))}
+                    value={inputs.segment}
+                    onValueChange={(value) => setInputs((prev) => ({ ...prev, segment: value }))}
                   >
                     <SelectTrigger className="bg-gray-700/50 border-gray-600 text-white">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent className="bg-[#15153f] border-gray-700">
-                      <SelectItem value="ecommerce">Fintech</SelectItem>
-                      <SelectItem value="retail">Banco digital</SelectItem>
-                      <SelectItem value="realestate">Telecom</SelectItem>
-                      <SelectItem value="hospitality">Seguradora</SelectItem>
-                      <SelectItem value="healthcare">Cooperativa</SelectItem>
-                      <SelectItem value="finance">Meios de pagamento</SelectItem>
-                      <SelectItem value="automotive">Varejo</SelectItem>
+                      <SelectItem value="fintech">Fintech</SelectItem>
+                      <SelectItem value="banco-digital">Banco digital</SelectItem>
+                      <SelectItem value="telecom">Telecom</SelectItem>
+                      <SelectItem value="seguradora">Seguradora</SelectItem>
+                      <SelectItem value="meios-pagamento">Meios de pagamento</SelectItem>
+                      <SelectItem value="varejo">Varejo</SelectItem>
+                      <SelectItem value="cooperativa">Cooperativa</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
-                {/* Monthly Visitors */}
+                {/* Customer Base */}
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-3">
                     Clientes na base:{" "}
-                    <span className="text-white font-semibold">{inputs.monthlyVisitors.toLocaleString()}</span>
+                    <span className="text-white font-semibold">{formatBR(inputs.customerBase)}</span>
                   </label>
                   <Slider
-                    value={[inputs.monthlyVisitors]}
-                    onValueChange={([value]) => setInputs((prev) => ({ ...prev, monthlyVisitors: value }))}
-                    max={100000}
-                    min={1000}
-                    step={1000}
+                    value={[inputs.customerBase]}
+                    onValueChange={([value]) => setInputs((prev) => ({ ...prev, customerBase: value }))}
+                    max={10000000}
+                    min={10000}
+                    step={10000}
                     className="w-full"
                   />
                   <div className="flex justify-between text-xs text-gray-400 mt-1">
@@ -159,43 +130,43 @@ export function ROICalculatorSection() {
                   </div>
                 </div>
 
-                {/* Conversion Rate */}
+                {/* Scam Rate (per year) */}
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-3">
-                    Clientes que recebem golpe/mês:{" "}
-                    <span className="text-white font-semibold">{inputs.currentConversionRate}%</span>
+                    Clientes que sofrem golpe com perda por ano:{" "}
+                    <span className="text-white font-semibold">{inputs.scamRate}%</span>
                   </label>
                   <Slider
-                    value={[inputs.currentConversionRate]}
-                    onValueChange={([value]) => setInputs((prev) => ({ ...prev, currentConversionRate: value }))}
-                    max={10}
-                    min={0.5}
-                    step={0.1}
+                    value={[inputs.scamRate]}
+                    onValueChange={([value]) => setInputs((prev) => ({ ...prev, scamRate: value }))}
+                    max={54}
+                    min={5}
+                    step={1}
                     className="w-full"
                   />
                   <div className="flex justify-between text-xs text-gray-400 mt-1">
-                    <span>1%</span>
-                    <span>30%</span>
+                    <span>5%</span>
+                    <span>54%</span>
                   </div>
                 </div>
 
-                {/* Average Order Value */}
+                {/* Average Loss */}
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-3">
                     Prejuízo médio por golpe:{" "}
-                    <span className="text-white font-semibold">R$ {inputs.averageOrderValue.toLocaleString()}</span>
+                    <span className="text-white font-semibold">{formatBRL(inputs.averageLoss)}</span>
                   </label>
                   <Slider
-                    value={[inputs.averageOrderValue]}
-                    onValueChange={([value]) => setInputs((prev) => ({ ...prev, averageOrderValue: value }))}
-                    max={businessConfig.maxOrder}
-                    min={25}
-                    step={inputs.businessType === "automotive" || inputs.businessType === "realestate" ? 1000 : 25}
+                    value={[inputs.averageLoss]}
+                    onValueChange={([value]) => setInputs((prev) => ({ ...prev, averageLoss: value }))}
+                    max={5700}
+                    min={100}
+                    step={100}
                     className="w-full"
                   />
                   <div className="flex justify-between text-xs text-gray-400 mt-1">
-                    <span>R$ 200</span>
-                    <span>R$ {businessConfig.maxOrder.toLocaleString()}</span>
+                    <span>R$ 100</span>
+                    <span>R$ 5.700</span>
                   </div>
                 </div>
 
@@ -226,8 +197,8 @@ export function ROICalculatorSection() {
                       <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
                       <div>
                         <p className="text-sm text-gray-300">
-                          <span className="font-medium text-white">Mercado:</span> golpes via PIX e phishing são a
-                          fraude que mais cresce no Brasil
+                          <span className="font-medium text-white">51%</span> dos brasileiros foram vítimas de fraude em
+                          2024 (Serasa Experian)
                         </p>
                       </div>
                     </div>
@@ -235,8 +206,8 @@ export function ROICalculatorSection() {
                       <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
                       <div>
                         <p className="text-sm text-gray-300">
-                          <span className="font-medium text-white">Velocidade:</span> a verificação devolve o veredito em
-                          menos de 10 segundos
+                          <span className="font-medium text-white">40%</span> das vítimas não reconhecem o golpe a tempo
+                          (GASA)
                         </p>
                       </div>
                     </div>
@@ -244,8 +215,8 @@ export function ROICalculatorSection() {
                       <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
                       <div>
                         <p className="text-sm text-gray-300">
-                          <span className="font-medium text-white">Confiança:</span> cliente que verifica antes abre
-                          menos chamado de estorno
+                          <span className="font-medium text-white">Prejuízo médio por vítima:</span> R$ 1.300 a R$ 5.700
+                          (Serasa / GASA)
                         </p>
                       </div>
                     </div>
@@ -265,17 +236,17 @@ export function ROICalculatorSection() {
               </h3>
 
               <div className="space-y-6 flex-1">
-                {/* Current vs New Metrics */}
+                {/* Hoje vs Com a Rooki */}
                 <div className="grid grid-cols-2 gap-3 md:gap-4">
                   <div className="text-center p-3 md:p-4 rounded-lg bg-gray-700/30">
                     <div className="text-xs md:text-sm text-gray-400 mb-1">Hoje</div>
-                    <div className="text-xl md:text-2xl font-bold text-white">{currentLeads}</div>
-                    <div className="text-xs text-gray-400">golpes/mês</div>
+                    <div className="text-xl md:text-2xl font-bold text-white">{formatBR(vitimasAno)}</div>
+                    <div className="text-xs text-gray-400">golpes com perda/ano</div>
                   </div>
                   <div className="text-center p-3 md:p-4 rounded-lg bg-white/10 border border-white/20">
                     <div className="text-xs md:text-sm text-gray-300 mb-1">Com a Rooki</div>
-                    <div className="text-xl md:text-2xl font-bold text-white">{newLeads}</div>
-                    <div className="text-xs text-gray-300">golpes evitados/mês</div>
+                    <div className="text-xl md:text-2xl font-bold text-white">{formatBR(golpesEvitaveis)}</div>
+                    <div className="text-xs text-gray-300">golpes evitáveis/ano</div>
                   </div>
                 </div>
 
@@ -283,47 +254,42 @@ export function ROICalculatorSection() {
                   <div className="flex items-center justify-between p-3 md:p-4 rounded-lg bg-white/5 border border-white/10">
                     <div className="flex items-center gap-3">
                       <Users className="w-4 h-4 md:w-5 md:h-5 text-gray-300" />
-                      <span className="text-sm md:text-base text-white">Golpes evitados</span>
+                      <span className="text-sm md:text-base text-white">Golpes com perda por ano</span>
                     </div>
-                    <span className="text-lg md:text-xl font-bold text-white">+{additionalLeads}</span>
+                    <span className="text-lg md:text-xl font-bold text-white">{formatBR(vitimasAno)}</span>
                   </div>
 
                   <div className="flex items-center justify-between p-3 md:p-4 rounded-lg bg-white/5 border border-white/10">
                     <div className="flex items-center gap-3">
                       <DollarSign className="w-4 h-4 md:w-5 md:h-5 text-gray-300" />
-                      <span className="text-sm md:text-base text-white">Perda evitada</span>
+                      <span className="text-sm md:text-base text-white">Perda anual estimada</span>
                     </div>
-                    <span className="text-lg md:text-xl font-bold text-white">
-                      R$ {additionalRevenue.toLocaleString()}
-                    </span>
+                    <span className="text-lg md:text-xl font-bold text-white">{formatBRL(perdaAnual)}</span>
                   </div>
 
                   <div className="flex items-center justify-between p-3 md:p-4 rounded-lg bg-white/5 border border-white/10">
                     <div className="flex items-center gap-3">
-                      <TrendingUp className="w-4 h-4 md:w-5 md:h-5 text-gray-300" />
-                      <span className="text-sm md:text-base text-white">Redução de exposição</span>
+                      <ShieldCheck className="w-4 h-4 md:w-5 md:h-5 text-gray-300" />
+                      <div className="flex flex-col">
+                        <span className="text-sm md:text-base text-white">
+                          Fatia evitável (não reconhecida a tempo)
+                        </span>
+                        <span className="text-xs text-gray-400">fonte: GASA</span>
+                      </div>
                     </div>
-                    <span className="text-lg md:text-xl font-bold text-white">+{revenueIncrease.toFixed(1)}%</span>
-                  </div>
-
-                  <div className="flex items-center justify-between p-3 md:p-4 rounded-lg bg-white/5 border border-white/10">
-                    <div className="flex items-center gap-3">
-                      <Clock className="w-4 h-4 md:w-5 md:h-5 text-gray-300" />
-                      <span className="text-sm md:text-base text-white">Tempo de verificação</span>
-                    </div>
-                    <span className="text-lg md:text-xl font-bold text-white">{improvements.response}% mais rápido</span>
+                    <span className="text-lg md:text-xl font-bold text-white">40%</span>
                   </div>
                 </div>
 
                 {/* Annual Projection */}
                 <div className="mt-6 md:mt-8 p-4 md:p-6 rounded-lg bg-white/5 border border-white/10">
                   <div className="text-center">
-                    <div className="text-xs md:text-sm text-gray-300 mb-2">Perda potencial evitada por ano</div>
+                    <div className="text-xs md:text-sm text-gray-300 mb-2">Perda que a Rooki ajuda a evitar por ano</div>
                     <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">
-                      R$ {(additionalRevenue * 12).toLocaleString()}
+                      {formatBRL(perdaEvitavel)}
                     </div>
                     <div className="text-xs md:text-sm text-gray-400">
-                      Estimativa baseada nos seus dados e em médias de mercado
+                      Estimativa baseada em médias de mercado (Serasa Experian e GASA, 2024–2025)
                     </div>
                   </div>
                 </div>
@@ -337,7 +303,8 @@ export function ROICalculatorSection() {
           className={`text-center mt-12 md:mt-16 transition-all duration-700 delay-600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           <p className="text-sm text-gray-400 mt-4">
-            * Estimativa com base em médias de mercado. Os números reais variam por base e segmento.
+            * Estimativa baseada em médias de mercado (Serasa Experian e GASA, 2024–2025). Os números reais variam por
+            base e segmento.
           </p>
         </div>
       </div>
