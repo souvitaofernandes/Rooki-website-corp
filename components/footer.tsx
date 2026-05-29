@@ -78,13 +78,13 @@ export function Footer() {
           {footerLinks.map((section, index) => (
             <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
               <div className="mb-10 md:mb-0">
-                <h3 className="text-xs">{section.label}</h3>
-                <ul className="text-muted-foreground mt-4 space-y-2 text-sm">
+                <h3 className="text-xs text-white font-semibold uppercase tracking-wider">{section.label}</h3>
+                <ul className="mt-4 space-y-2 text-sm text-[#94A3B8]">
                   {section.links.map((link) => (
                     <li key={link.title}>
                       <a
                         href={link.href}
-                        className="hover:text-foreground inline-flex items-center transition-all duration-300"
+                        className="hover:text-[#04C5FF] inline-flex items-center transition-all duration-300"
                       >
                         {link.icon && <link.icon className="me-1 size-4" />}
                         {link.title}

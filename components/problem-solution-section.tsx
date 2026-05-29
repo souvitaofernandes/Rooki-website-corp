@@ -212,7 +212,7 @@ export function ProblemSolutionSection() {
           </p>
           <Button
             size="lg"
-            className="bg-white text-black rounded-full px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer"
+            className="rounded-full px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg group cursor-pointer"
           >
             Quero o diagnóstico
             <ArrowRight />

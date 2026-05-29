@@ -138,7 +138,7 @@ export function GlassmorphismNav() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer"
+                      className="text-[#94A3B8] hover:text-[#04C5FF] hover:scale-105 transition-all duration-200 font-medium cursor-pointer"
                     >
                       {item.name}
                     </Link>
@@ -146,7 +146,7 @@ export function GlassmorphismNav() {
                     <button
                       key={item.name}
                       onClick={() => scrollToSection(item.href)}
-                      className="text-white/80 hover:text-white hover:scale-105 transition-all duration-200 font-medium cursor-pointer"
+                      className="text-[#94A3B8] hover:text-[#04C5FF] hover:scale-105 transition-all duration-200 font-medium cursor-pointer"
                     >
                       {item.name}
                     </button>
@@ -157,7 +157,7 @@ export function GlassmorphismNav() {
               {/* Desktop CTA Button */}
               <div className="hidden md:block">
                 <button
-                  className="relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group"
+                  className="relative bg-[#443CFF] hover:bg-[#3730E0] text-white font-medium px-6 py-2 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group"
                   onClick={() => scrollToSection("#contact")}
                 >
                   <span className="mr-2">Falar com a gente</span>
@@ -212,7 +212,7 @@ export function GlassmorphismNav() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
+                      className={`text-[#94A3B8] hover:text-[#04C5FF] hover:bg-white/5 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
                         isOpen ? "animate-mobile-menu-item" : ""
                       }`}
                       style={{
@@ -226,7 +226,7 @@ export function GlassmorphismNav() {
                     <button
                       key={item.name}
                       onClick={() => scrollToSection(item.href)}
-                      className={`text-white/80 hover:text-white hover:bg-white/10 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
+                      className={`text-[#94A3B8] hover:text-[#04C5FF] hover:bg-white/5 rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer transform hover:scale-[1.02] hover:translate-x-1 ${
                         isOpen ? "animate-mobile-menu-item" : ""
                       }`}
                       style={{
@@ -239,7 +239,7 @@ export function GlassmorphismNav() {
                 )}
                 <div className="h-px bg-white/10 my-2" />
                 <button
-                  className={`relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group transform ${
+                  className={`relative bg-[#443CFF] hover:bg-[#3730E0] text-white font-medium px-6 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group transform ${
                     isOpen ? "animate-mobile-menu-item" : ""
                   }`}
                   style={{
