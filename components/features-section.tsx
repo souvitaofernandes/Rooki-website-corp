@@ -116,96 +116,178 @@ const AnimatedChatDemo = ({ isActive }: { isActive: boolean }) => {
   )
 }
 
-const AnimatedPhoneDemo = ({ isActive }: { isActive: boolean }) => {
-  const [callState, setCallState] = useState<"idle" | "ringing" | "answered">("idle")
-  const [callCount, setCallCount] = useState(0)
+const AnimatedLinkScanDemo = ({ isActive }: { isActive: boolean }) => {
+  const [stage, setStage] = useState<"idle" | "scanning" | "blocked">("idle")
 
   useEffect(() => {
     if (!isActive) return
 
-    const cycleCall = () => {
-      setCallState("ringing")
-      setTimeout(() => {
-        setCallState("answered")
+    let timeouts: ReturnType<typeof setTimeout>[] = []
+    const cycle = () => {
+      setStage("scanning")
+      timeouts.push(
         setTimeout(() => {
-          setCallState("idle")
-          setCallCount((prev) => prev + 1)
-          setTimeout(cycleCall, 2000)
-        }, 2000)
-      }, 2000)
+          setStage("blocked")
+          timeouts.push(
+            setTimeout(() => {
+              setStage("idle")
+              timeouts.push(setTimeout(cycle, 1200))
+            }, 2400),
+          )
+        }, 1800),
+      )
     }
 
-    const timer = setTimeout(cycleCall, 800)
-    return () => clearTimeout(timer)
+    timeouts.push(setTimeout(cycle, 500))
+    return () => timeouts.forEach(clearTimeout)
   }, [isActive])
 
   return (
-    <div className="bg-slate-50 rounded-lg p-4 h-32 flex items-center justify-center relative">
-      <div className="absolute top-2 right-2 text-xs text-slate-500 font-medium">Links: {callCount + 1}</div>
-      <div className="relative">
-        <div
-          className={`w-16 h-16 rounded-full bg-green-500 flex items-center justify-center transition-all duration-500 ${
-            callState === "ringing" ? "animate-pulse scale-110" : ""
-          } ${callState === "answered" ? "bg-blue-500" : ""}`}
+    <div className="bg-slate-50 rounded-lg p-4 h-32 flex flex-col justify-center relative">
+      <div className="flex items-center gap-2 mb-2">
+        <svg
+          className={`w-3.5 h-3.5 shrink-0 transition-colors ${stage === "blocked" ? "text-red-500" : "text-slate-400"}`}
+          fill="currentColor"
+          viewBox="0 0 20 20"
         >
-          <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-          </svg>
+          <path
+            fillRule="evenodd"
+            d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z"
+            clipRule="evenodd"
+          />
+        </svg>
+        <div
+          className={`flex-1 bg-white rounded px-2 py-1 text-[10px] font-mono truncate border transition-all ${
+            stage === "blocked"
+              ? "border-red-300 text-red-600 line-through"
+              : "border-slate-200 text-slate-600"
+          }`}
+        >
+          banc0-seguro-pix.xyz/login
         </div>
-        {callState === "ringing" && (
+      </div>
+
+      <div className="h-1 bg-slate-200 rounded-full overflow-hidden">
+        <div
+          className={`h-full rounded-full ${
+            stage === "scanning"
+              ? "bg-blue-500 w-full transition-[width] duration-[1700ms] ease-linear"
+              : stage === "blocked"
+                ? "bg-red-500 w-full"
+                : "bg-blue-500 w-0"
+          }`}
+        />
+      </div>
+
+      <div className="mt-2 flex items-center gap-1.5 h-4">
+        {stage === "blocked" ? (
           <>
-            <div className="absolute inset-0 rounded-full border-2 border-green-400 animate-ping"></div>
-            <div className="absolute inset-0 rounded-full border-2 border-green-400 animate-ping animation-delay-75"></div>
+            <svg className="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span className="text-[11px] font-semibold text-red-600">Link suspeito · bloqueado</span>
           </>
-        )}
-        {callState === "answered" && (
-          <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-            <div className="bg-blue-100 px-2 py-1 rounded text-xs text-blue-700 whitespace-nowrap">Link verificado</div>
-          </div>
+        ) : (
+          <>
+            <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+            <span className="text-[11px] text-slate-500">
+              {stage === "scanning" ? "Analisando link…" : "Aguardando link"}
+            </span>
+          </>
         )}
       </div>
     </div>
   )
 }
 
-const AnimatedCalendarDemo = ({ isActive }: { isActive: boolean }) => {
-  const [selectedDate, setSelectedDate] = useState<number | null>(null)
-  const [booked, setBooked] = useState(false)
+const AnimatedTimerDemo = ({ isActive }: { isActive: boolean }) => {
+  const [seconds, setSeconds] = useState(0)
+  const [done, setDone] = useState(false)
+  const [cycle, setCycle] = useState(0)
 
   useEffect(() => {
     if (!isActive) return
 
-    const timer = setTimeout(() => {
-      setSelectedDate(15)
-      setTimeout(() => setBooked(true), 1500)
-    }, 1000)
+    setSeconds(0)
+    setDone(false)
 
-    return () => clearTimeout(timer)
-  }, [isActive])
+    const target = 8
+    let current = 0
+    const interval = setInterval(() => {
+      current += 1
+      setSeconds(current)
+      if (current >= target) {
+        clearInterval(interval)
+        setTimeout(() => setDone(true), 150)
+      }
+    }, 220)
+
+    const resetTimer = setTimeout(() => setCycle((c) => c + 1), 4800)
+
+    return () => {
+      clearInterval(interval)
+      clearTimeout(resetTimer)
+    }
+  }, [isActive, cycle])
+
+  const radius = 34
+  const circumference = 2 * Math.PI * radius
+  const progress = Math.min(seconds / 8, 1)
 
   return (
-    <div className="bg-slate-50 rounded-lg p-4 h-32">
-      <div className="grid grid-cols-7 gap-1 text-xs">
-        {Array.from({ length: 21 }, (_, i) => i + 1).map((day) => (
-          <div
-            key={day}
-            className={`w-4 h-4 flex items-center justify-center rounded transition-all duration-300 ${
-              day === selectedDate
-                ? booked
-                  ? "bg-green-500 text-white scale-110"
-                  : "bg-blue-500 text-white scale-110"
-                : day % 7 === 0 || day % 6 === 0
-                  ? "bg-slate-200 text-slate-400"
-                  : "bg-white text-slate-600 hover:bg-slate-100"
-            }`}
-          >
-            {day}
-          </div>
-        ))}
+    <div className="bg-slate-50 rounded-lg p-4 h-32 flex items-center justify-center gap-4 relative">
+      <div className="relative w-20 h-20">
+        <svg className="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r={radius} stroke="#e2e8f0" strokeWidth="6" fill="none" />
+          <circle
+            cx="40"
+            cy="40"
+            r={radius}
+            stroke="#3b82f6"
+            strokeWidth="6"
+            fill="none"
+            strokeLinecap="round"
+            strokeDasharray={circumference}
+            strokeDashoffset={circumference * (1 - progress)}
+            className="transition-[stroke-dashoffset] duration-200 ease-linear"
+          />
+        </svg>
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <span className="text-lg font-bold text-slate-900 tabular-nums leading-none">
+            {seconds}s
+          </span>
+          <span className="text-[8px] text-slate-500 uppercase tracking-wider mt-0.5">
+            análise
+          </span>
+        </div>
       </div>
-      {booked && (
-        <div className="mt-2 text-xs text-green-600 font-medium animate-fade-in">✓ Golpe identificado e bloqueado</div>
-      )}
+
+      <div className="flex flex-col gap-1.5">
+        <div className="flex items-center gap-1.5">
+          <div className={`w-1.5 h-1.5 rounded-full ${seconds >= 1 ? "bg-blue-500" : "bg-slate-300"}`} />
+          <span className="text-[10px] text-slate-600">Recebido</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <div className={`w-1.5 h-1.5 rounded-full ${seconds >= 4 ? "bg-blue-500" : "bg-slate-300"}`} />
+          <span className="text-[10px] text-slate-600">Analisando</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          {done ? (
+            <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="#00FC6E" strokeWidth="4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          ) : (
+            <div className="w-1.5 h-1.5 rounded-full bg-slate-300" />
+          )}
+          <span className={`text-[10px] ${done ? "text-slate-700 font-medium" : "text-slate-600"}`}>
+            Concluído
+          </span>
+        </div>
+      </div>
     </div>
   )
 }
@@ -258,58 +340,60 @@ const AnimatedEmailDemo = ({ isActive }: { isActive: boolean }) => {
   )
 }
 
-const AnimatedLeadsDemo = ({ isActive }: { isActive: boolean }) => {
-  const [leads, setLeads] = useState([
-    { name: "Sarah M.", score: 0, qualified: false },
-    { name: "John D.", score: 0, qualified: false },
-    { name: "Mike R.", score: 0, qualified: false },
-  ])
+const AnimatedScamClassifyDemo = ({ isActive }: { isActive: boolean }) => {
+  const scams = [
+    { name: "Golpe de PIX", risk: "Alto", tone: "red" as const },
+    { name: "Phishing", risk: "Alto", tone: "red" as const },
+    { name: "Falso atendente", risk: "Médio", tone: "orange" as const },
+  ]
+  const [visibleCount, setVisibleCount] = useState(0)
 
   useEffect(() => {
     if (!isActive) return
 
-    leads.forEach((_, index) => {
-      setTimeout(() => {
-        const targetScore = [85, 92, 78][index]
-        const interval = setInterval(() => {
-          setLeads((prev) =>
-            prev.map((lead, i) => {
-              if (i === index && lead.score < targetScore) {
-                const newScore = Math.min(lead.score + 5, targetScore)
-                return {
-                  ...lead,
-                  score: newScore,
-                  qualified: newScore >= 80,
-                }
-              }
-              return lead
-            }),
-          )
-        }, 50)
+    setVisibleCount(0)
+    const timeouts = scams.map((_, index) =>
+      setTimeout(() => setVisibleCount(index + 1), 500 + index * 600),
+    )
 
-        setTimeout(() => clearInterval(interval), 1000)
-      }, index * 600)
-    })
+    return () => timeouts.forEach(clearTimeout)
   }, [isActive])
 
   return (
     <div className="bg-slate-50 rounded-lg p-4 h-32 overflow-hidden">
-      <div className="space-y-2">
-        {leads.map((lead, i) => (
-          <div key={i} className="flex items-center gap-2">
-            <span className="text-xs text-slate-700 w-12">{lead.name}</span>
-            <div className="flex-1 bg-slate-200 rounded-full h-2">
-              <div
-                className={`h-2 rounded-full transition-all duration-500 ${
-                  lead.qualified ? "bg-green-500" : "bg-blue-500"
+      <div className="space-y-1.5">
+        {scams.map((scam, i) => {
+          const visible = i < visibleCount
+          const isRed = scam.tone === "red"
+          return (
+            <div
+              key={i}
+              className={`flex items-center gap-2 px-1.5 py-1 rounded transition-all duration-500 ${
+                visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2"
+              }`}
+            >
+              <svg
+                className={`w-3.5 h-3.5 shrink-0 ${isRed ? "text-red-500" : "text-orange-500"}`}
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="text-xs text-slate-700 flex-1 truncate">{scam.name}</span>
+              <span
+                className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                  isRed ? "bg-red-100 text-red-700" : "bg-orange-100 text-orange-700"
                 }`}
-                style={{ width: `${lead.score}%` }}
-              />
+              >
+                {scam.risk}
+              </span>
             </div>
-            <span className="text-xs font-medium w-8">{lead.score}%</span>
-            {lead.qualified && <span className="text-xs text-green-600">✓</span>}
-          </div>
-        ))}
+          )
+        })}
       </div>
     </div>
   )
@@ -374,14 +458,14 @@ const features = [
     title: "Detecção de link falso",
     description:
       "Analisa o link antes do clique e identifica páginas que se passam por banco, loja ou órgão público.",
-    demo: AnimatedPhoneDemo,
+    demo: AnimatedLinkScanDemo,
     size: "medium",
   },
   {
     title: "Resposta em segundos",
     description:
       "O veredito chega em menos de 10 segundos, no mesmo canal onde o cliente recebeu a mensagem. Sem app novo, sem cadastro.",
-    demo: AnimatedCalendarDemo,
+    demo: AnimatedTimerDemo,
     size: "medium",
   },
   {
@@ -395,7 +479,7 @@ const features = [
     title: "Classificação do golpe",
     description:
       "Identifica o tipo de golpe, de PIX a phishing e falso atendente, e orienta o passo seguro na hora.",
-    demo: AnimatedLeadsDemo,
+    demo: AnimatedScamClassifyDemo,
     size: "medium",
   },
   {
