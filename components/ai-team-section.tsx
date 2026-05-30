@@ -119,29 +119,21 @@ export function AITeamSection() {
                 }`}
                 style={{ maxWidth: '340px' }}
               >
-                <div
+                <video
+                  src="/videos/rooki-whatsapp.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                   style={{
+                    width: '100%',
                     aspectRatio: '9 / 16',
+                    objectFit: 'cover',
+                    display: 'block',
                     borderRadius: '1.5rem',
-                    overflow: 'hidden',
-                    boxShadow: '0 25px 50px -12px rgba(0,0,0,0.4)',
-                    background: '#000',
+                    boxShadow: '0 25px 50px -12px rgba(0,0,0,0.35)',
                   }}
-                >
-                  <video
-                    src="/videos/rooki-whatsapp.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      display: 'block',
-                    }}
-                  />
-                </div>
+                />
               </div>
             </div>
           </div>
