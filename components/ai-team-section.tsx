@@ -113,18 +113,21 @@ export function AITeamSection() {
 
             {/* Right side - Vídeo nativo vertical 9:16 */}
             <div className="w-full lg:w-1/2 flex justify-center order-1 lg:order-2">
+              {/* Wrapper de animação: nunca tem overflow-hidden para não clipar durante translate */}
               <div
                 className={`transition-all duration-1000 delay-600 w-full ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
                 style={{ maxWidth: '340px' }}
               >
+                {/* Container 9:16 estável: proportion fixada aqui, independente do carregamento do vídeo */}
                 <div
                   style={{
                     aspectRatio: '9 / 16',
+                    width: '100%',
                     borderRadius: '1.5rem',
                     overflow: 'hidden',
-                    boxShadow: '0 25px 50px -12px rgba(0,0,0,0.4)',
+                    boxShadow: '0 25px 50px -12px rgba(0,0,0,0.35)',
                     background: '#000',
                   }}
                 >
@@ -137,7 +140,7 @@ export function AITeamSection() {
                     style={{
                       width: '100%',
                       height: '100%',
-                      objectFit: 'cover',
+                      objectFit: 'contain',
                       display: 'block',
                     }}
                   />
